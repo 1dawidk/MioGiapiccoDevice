@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.18a
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: d d, d, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.18a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.18a
+Dialog DLL:      DCM.DLL V1.13.6.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.8.0
+ 
+<h2>Project:</h2>
+C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\MioGiapicco.uvprojx
+Project File Date:  06/22/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling main.c...
+..\MioGiapicco\def/def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                  (uint8_t *)0
+main.c(170): warning:  #111-D: statement is unreachable
+        return 0;
+main.c(6): warning:  #177-D: variable "sysCfg" was declared but never referenced
+        SystemConfig_dt sysCfg;
+main.c(23): warning:  #177-D: variable "serverJSONResp" was declared but never referenced
+        JSON serverJSONResp;
+main.c: 4 warnings, 0 errors
+compiling fun.c...
+compiling esp8266Drv.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                  (uint8_t *)0
+fun\esp8266Drv.c(77): warning:  #1-D: last line of file ends without a newline
+  #endif
+fun\esp8266Drv.c: 2 warnings, 0 errors
+compiling ServerDriver.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                  (uint8_t *)0
+fun\ServerDriver.c(51): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                sscanf((const char*)_UART1_RxLine, "+IPD,%d,", &client.id);
+fun\ServerDriver.c(75): warning:  #940-D: missing return statement at end of non-void function "Server_ConnectTo"
+  }
+fun\ServerDriver.c: 3 warnings, 0 errors
+compiling WiFiMgr.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                  (uint8_t *)0
+fun\WiFiMgr.c(48): warning:  #940-D: missing return statement at end of non-void function "WiFi_InitClientMode"
+  }
+fun\WiFiMgr.c(42): warning:  #177-D: variable "apData" was declared but never referenced
+        char apData[60];
+fun\WiFiMgr.c(59): warning:  #940-D: missing return statement at end of non-void function "WiFi_StartWiFiConnecting"
+  }
+fun\WiFiMgr.c: 4 warnings, 0 errors
+compiling DMADrv.c...
+compiling UartDrv.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                  (uint8_t *)0
+..\..\libs\BusDrv\UART\UartDrv.c: 1 warning, 0 errors
+compiling stm32f10x_it.c...
+compiling coreInit.c...
+linking...
+Program Size: Code=12824 RO-data=336 RW-data=40 ZI-data=2608  
+FromELF: creating hex file...
+".\obj\MioGiapicco.axf" - 0 Error(s), 14 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:05
+</pre>
+</body>
+</html>
