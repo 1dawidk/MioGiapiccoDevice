@@ -11,6 +11,7 @@
 .\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h
 .\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h
 .\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h
 .\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h
 .\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h
 .\obj\main.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h
@@ -34,6 +35,7 @@
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\main.o: fun/ServerDriver.h
 .\obj\main.o: fun/WiFiMgr.h
+.\obj\main.o: ..\..\libs\BusDrv\I2C/I2cDrv.h
 .\obj\main.o: fun/JSON.h
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\main.o: fun/eeprom.h

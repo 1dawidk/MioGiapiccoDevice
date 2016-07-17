@@ -13,8 +13,9 @@
 #include "esp8266Drv.h"
 #include "ServerDriver.h"
 #include "WiFiMgr.h"
+#include "I2C/I2cDrv.h"
 
-uint8_t StartSys(void);
+uint8_t StartSys(SystemConfig_dt *sysCfg);
 void DHT11Init(void);
 
 uint8_t getSoilMoisture(void);

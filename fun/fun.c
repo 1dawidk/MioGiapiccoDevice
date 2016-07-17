@@ -100,12 +100,37 @@ void DHT11Init(void)
 	getDHTData(&tmp1, &tmp2);
 }
 
+uint8_t EERead(uint8_t address)
+{
+	
+}
+
+voiud EEWrite(uint8_t address, uint8_t data)
+{
+	
+}
+
+void EEInit(SystemConfig_dt *sysCfg)
+{
+	I2C1_init();
+	_delay_ms(20);
+	
+	if(EERead(EE_ADR_FIRSTRUN))
+	{
+		
+	}
+	else
+	{
+		sysCfg->user
+	}
+}
+
 
 /**
 *	@brief Used to start Plant System
 *	@return Initialization result. OK or ERROR
 */
-uint8_t StartSys(void)
+uint8_t StartSys(SystemConfig_dt *sysCfg)
 {
 	CoreInit();
 	SYS_LED_OFF;
@@ -116,15 +141,19 @@ uint8_t StartSys(void)
 	EngineInit();
 	SoilHygrometerInsolationInit();
 	DHT11Init();
+	EEInit(sysCfg);
+	
 	
 	if(WIFIMODE_BUTTON_STATE)
 	{
 		WiFiInit(WIFI_MODE_AP);
 		Server_StartRxListener("<h1>Hi, my name is Plant!</h1><p>First set up my configuration</p>");
+		sysCfg->mode=SYS_MODE_CONFIG;
 	}
 	else
 	{
 		WiFiInit(WIFI_MODE_CLIENT);
+		sysCfg->mode=SYS_MODE_NORMAL;
 	}
 	
 	return 0;
