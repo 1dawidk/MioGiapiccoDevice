@@ -100,28 +100,18 @@ void DHT11Init(void)
 	getDHTData(&tmp1, &tmp2);
 }
 
-uint8_t EERead(uint8_t address)
-{
-	
-}
-
-voiud EEWrite(uint8_t address, uint8_t data)
-{
-	
-}
-
-void EEInit(SystemConfig_dt *sysCfg)
+void MemoryInit(SystemConfig_dt *sysCfg)
 {
 	I2C1_init();
 	_delay_ms(20);
 	
-	if(EERead(EE_ADR_FIRSTRUN))
+	if(EERead_Byte(EE_ADR_FIRSTRUN))
 	{
 		
 	}
 	else
 	{
-		sysCfg->user
+		
 	}
 }
 
@@ -141,7 +131,7 @@ uint8_t StartSys(SystemConfig_dt *sysCfg)
 	EngineInit();
 	SoilHygrometerInsolationInit();
 	DHT11Init();
-	EEInit(sysCfg);
+	MemoryInit(sysCfg);
 	
 	
 	if(WIFIMODE_BUTTON_STATE)

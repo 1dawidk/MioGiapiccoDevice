@@ -23,7 +23,7 @@ int main(void)
 	JSON serverJSONResp;
 	
 	//System init	
-	StartSys();
+	StartSys(&sysCfg);
 	
 	measure.talking=0;
 	measure.dataPrepared=0;

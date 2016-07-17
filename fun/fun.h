@@ -14,6 +14,7 @@
 #include "ServerDriver.h"
 #include "WiFiMgr.h"
 #include "I2C/I2cDrv.h"
+#include "fun/eeprom.h"
 
 uint8_t StartSys(SystemConfig_dt *sysCfg);
 void DHT11Init(void);

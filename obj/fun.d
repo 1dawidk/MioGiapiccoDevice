@@ -35,3 +35,4 @@
 .\obj\fun.o: fun\ServerDriver.h
 .\obj\fun.o: fun\WiFiMgr.h
 .\obj\fun.o: ..\..\libs\BusDrv\I2C/I2cDrv.h
+.\obj\fun.o: ..\MioGiapicco\fun/eeprom.h

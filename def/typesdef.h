@@ -15,6 +15,9 @@ typedef struct{
 	uint8_t wattering;
 }	Plant_dt;
 
+#define SYS_MODE_NORMAL			0
+#define SYS_MODE_CONFIG			1
+
 typedef struct{
 	uint8_t mode;
 	uint8_t plantsCnt;
