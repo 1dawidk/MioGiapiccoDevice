@@ -18,22 +18,57 @@ uint8_t Server_SendData(uint8_t connId, char *data)
 	char timeStr[10];
 	
 	sprintf(timeStr, "%d", seconds);
-	sprintf(dataPreStr, "%d,%d", connId, strlen(data)+strlen(timeStr)+8+10+17+5+strlen(SERVER_HEADER_NOTFOUND));
-	
-	
+	sprintf(dataPreStr, "%d,%d", connId, strlen(data)+strlen(SERVER_HEADER_OK));
 	
 	esp8266_sendData(ESP8266_CMD_SEND, dataPreStr);
 	if(esp8266_waitForPrompt(1)!=ESP8266_RESPONSE_OK)
 		return SERVER_RESPONSE_ERROR;
-	UART1_putStr(SERVER_HEADER_NOTFOUND);
-	UART1_putStr("<html><body>");
+	UART1_putStr(SERVER_HEADER_OK);
 	UART1_putStr(data);
-	UART1_putStr("<h2>Server Time: ");
-	UART1_putStr(timeStr);
-	UART1_putStr("</h2>");
-	UART1_putStr("</body></html>");
 	
 	return SERVER_RESPONSE_OK;
+}
+
+char* String_get(char *from, char *to, char *of)
+{
+	char *start= strstr(of, from);
+	char *stop= strstr(of, to);
+	uint8_t len;
+	
+	if(start && stop && (start<stop))
+	{
+		len
+	}
+}
+
+char* Server_GetPOSTVar(char *name)
+{
+	char *inStrPos= strstr((const char*)_UART1_RxLine, name);
+	uint8_t len= strlen(name);
+	uint8_t i;
+	
+	char *result;
+	
+	if(inStrPos)
+	{
+		inStrPos+=len+1;
+		i=0;
+		
+		while(inStrPos[i]!='&' && inStrPos[i]!='\r')
+			i++;
+		
+		i++;
+		
+		result= (char *)malloc(sizeof(char)*i);
+		
+		strncpy(result, inStrPos, i-1);
+		result[i-1]=0;
+	}
+}
+
+char *Server_GetPOSTString(void)
+{
+	
 }
 
 void Server_StartRxListener(char *newServerResp)
@@ -45,24 +80,47 @@ void Server_StartRxListener(char *newServerResp)
 uint8_t Server_RxListen(void)
 {
 	char idStr[3];
+	char *postValue;
+	char *pos;
 	
 	if(strstr((const char*)_UART1_RxLine, "+IPD"))
 	{
 		sscanf((const char*)_UART1_RxLine, "+IPD,%d,", &client.id);
 		client.handled=FALSE;
-		UART1_flushRx();
+		client.open=TRUE;
 	}
 	
-	if(!client.handled)
+	if(client.open)
 	{
-		Server_SendData(client.id, (char *)serverResp);
-		sprintf(idStr, "%d", client.id);
-		esp8266_sendData(ESP8266_CMD_CLOSE, idStr);
-		client.handled=TRUE;
+		pos= strstr((const char*)_UART1_RxLine, "CLOSE");
+		if(pos)
+		{
+			UART1_lock();
+			client.postVars= (char *)malloc(sizeof(char)*100);
+			strncpy(client.postVars, 
+			client.open=FALSE;
+		}
+	}
+	else if(!client.handled)
+	{
+		if(!strcmp(postValue, "Talk"))
+		{
+			Server_SendData(client.id, (char *)serverResp);
+			sprintf(idStr, "%d", client.id);
+			esp8266_sendData(ESP8266_CMD_CLOSE, idStr);
+			client.handled=TRUE;
+			UART1_unlock();
+		}
+		else
+		{
+			client.handled=TRUE;
 		}
 		
-		return 0;
+		free(client.postVars);
 	}
+		
+		return 0;
+}
 
 uint8_t Server_ConnectTo(char *URL)
 {
@@ -72,6 +130,8 @@ uint8_t Server_ConnectTo(char *URL)
 	
 	esp8266_sendData(ESP8266_CMD_CIPSTART, cipStartData);
 	esp8266_waitForResp(2);
+	
+	return 0;
 }
 
 void Server_putHttpRequestParams(HttpHeaderParam *httpReqParams, uint8_t httpParamsLen)

@@ -36,6 +36,7 @@ void RCC_config(void)
 			RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 			RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+			RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C2, ENABLE);
 			
 		// taktowanie APB1
 			RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
@@ -78,19 +79,25 @@ void GPIO_config(void)
 			GPIO_Init(GPIO_SEG(USART1_SEG), &GPIO_InitStruct);
 			
 		/* WiFi Module - Control */
-			GPIO_InitStruct.GPIO_Pin= WIFI_RST_PIN | WIFI_CHPD_PIN | WIFI_GPIO0_PIN | WIFI_GPIO2_PIN;
+			GPIO_InitStruct.GPIO_Pin= WIFI_RST_PIN | WIFI_CHPD_PIN;
 			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_Out_PP;
 			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_50MHz;
-			GPIO_Init(GPIO_SEG(WIFI_CTRL_SEG), &GPIO_InitStruct);
+			GPIO_Init(GPIO_SEG(WIFI_PWR_SEG), &GPIO_InitStruct);
+			
+		/* WiFi Module - Control */
+			GPIO_InitStruct.GPIO_Pin= WIFI_GPIO0_PIN | WIFI_GPIO2_PIN;
+			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_Out_PP;
+			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_50MHz;
+			GPIO_Init(GPIO_SEG(WIFI_GPIO_SEG), &GPIO_InitStruct);
 			
 		/* DH11 Module */
-			GPIO_InitStruct.GPIO_Pin= DH11_ONOFF_PIN | DH11_DATA0_PIN | DH11_DATA1_PIN | DH11_DATA2_PIN | DH11_DATA3_PIN;
+			GPIO_InitStruct.GPIO_Pin= DH11_ONOFF_PIN | DH11_DATA0_PIN;
 			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_Out_PP;
 			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_50MHz;
 			GPIO_Init(GPIO_SEG(DH11_SEG), &GPIO_InitStruct);
 	
 		//ADC
-			GPIO_InitStruct.GPIO_Pin= ADC_1_PIN | ADC_2_PIN | ADC_3_PIN | ADC_4_PIN;
+			GPIO_InitStruct.GPIO_Pin= ADC_1_PIN | ADC_2_PIN | ADC_3_PIN | ADC_4_PIN | ADC_5_PIN | ADC_6_PIN;
 			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_AIN;
 			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_50MHz;
 			GPIO_Init(GPIO_SEG(ADC_SEG), &GPIO_InitStruct);	
@@ -110,10 +117,17 @@ void GPIO_config(void)
 			GPIO_Init(GPIO_SEG(ENGINE_SEG), &GPIO_InitStruct);
 			
 			//BUTTONS
-			GPIO_InitStruct.GPIO_Pin= WIFIMODE_BUTTON_PIN | SECOND_BUTTON_PIN;
+			GPIO_InitStruct.GPIO_Pin= WIFIMODE_BUTTON_PIN;
 			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_IPU;
 			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_10MHz;
-			GPIO_Init(GPIO_SEG(BUTTONS_SEG), &GPIO_InitStruct);	
+			GPIO_Init(GPIO_SEG(BUTTONS_SEG), &GPIO_InitStruct);
+
+//-------- I2C1
+	GPIO_InitStruct.GPIO_Pin = (I2C_SDA_PIN | I2C_SCL_PIN);
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF_OD;
+	
+	GPIO_Init(GPIO_SEG(I2C_SEG), &GPIO_InitStruct);
 
 }
 

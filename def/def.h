@@ -45,15 +45,15 @@
 //*******************************************
 
 //############################## WIFI MODULE 
-#define WIFI_RST_H								SET_SEG(WIFI_CTRL_SEG) |= WIFI_RST_PIN
-#define WIFI_RST_L								SET_SEG(WIFI_CTRL_SEG) &= ~WIFI_RST_PIN
-#define WIFI_POWER_ON							SET_SEG(WIFI_CTRL_SEG) |= WIFI_CHPD_PIN
-#define WIFI_POWER_OFF						SET_SEG(WIFI_CTRL_SEG) &= ~WIFI_CHPD_PIN
+#define WIFI_RST_H								SET_SEG(WIFI_PWR_SEG) |= WIFI_RST_PIN
+#define WIFI_RST_L								SET_SEG(WIFI_PWR_SEG) &= ~WIFI_RST_PIN
+#define WIFI_POWER_ON							SET_SEG(WIFI_PWR_SEG) |= WIFI_CHPD_PIN
+#define WIFI_POWER_OFF						SET_SEG(WIFI_PWR_SEG) &= ~WIFI_CHPD_PIN
 
-#define WIFI_GPIO0_H							SET_SEG(WIFI_CTRL_SEG) |= WIFI_GPIO0_PIN
-#define WIFI_GPIO0_L							SET_SEG(WIFI_CTRL_SEG) &= ~WIFI_GPIO0_PIN
-#define WIFI_GPIO2_H							SET_SEG(WIFI_CTRL_SEG) |= WIFI_GPIO2_PIN
-#define WIFI_GPIO2_L							SET_SEG(WIFI_CTRL_SEG) &= ~WIFI_GPIO2_PIN
+#define WIFI_GPIO0_H							SET_SEG(WIFI_GPIO_SEG) |= WIFI_GPIO0_PIN
+#define WIFI_GPIO0_L							SET_SEG(WIFI_GPIO_SEG) &= ~WIFI_GPIO0_PIN
+#define WIFI_GPIO2_H							SET_SEG(WIFI_GPIO_SEG) |= WIFI_GPIO2_PIN
+#define WIFI_GPIO2_L							SET_SEG(WIFI_GPIO_SEG) &= ~WIFI_GPIO2_PIN
 //*******************************************
 
 //############################## DH11
@@ -101,11 +101,13 @@
 
 //##################### ADRESY PAMIECI EEPROM
 #define EE_ADR_FIRSTRUN						0
-#define EE_ADR_SSID_ADR						1
-#define EE_ADR_PASS_ADR						2
-#define EE_ADR_USER_LOGIN_ADR			3
-#define EE_ADR_USER_PASS_ADR			4
-#define EE_ADR_PLANTSCNT					5
+#define EE_ADR_PLANTSCNT					1
+
+#define EE_ADR_SSID								0
+#define EE_ADR_PASS								1
+#define EE_ADR_USER_LOGIN					2
+#define EE_ADR_USER_PASS					3
+#define EE_ADR_PLANTBASE_NAME			4
 //*******************************************
 
 #endif

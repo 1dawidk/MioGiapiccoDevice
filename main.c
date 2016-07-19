@@ -38,10 +38,10 @@ int main(void)
 	/*HTTP VARIABLES*/
 	/*Login*/
 	httpVars[0].name="Login";
-	httpVars[0].value="1dawidk";
+	httpVars[0].value=sysCfg.user_login;
 	
 	httpVars[1].name="Pass";
-	httpVars[1].value="sikakama1";
+	httpVars[1].value=sysCfg.user_pass;
 	
 	httpVars[2].name="PlantId";
 	httpVars[2].value="5";
@@ -73,98 +73,110 @@ int main(void)
 	//Main inf loop
 	while(1)
 	{		
-		if(measure.broken)
-		{
-			ERROR_LED_ON;
-			FUN_LED_ON;
-			DHT11Init();
-			measure.broken=0;
-			FUN_LED_OFF;
-			ERROR_LED_OFF;
-		}
-		
 		/* NORMAL MODE LOOP */
-		if((CLOCK-measure.lastTime)>MEASUREMENT_SEP)
+		if(sysCfg.mode==SYS_MODE_NORMAL)
 		{
-			if(WiFi_IsWiFiConnected()==WIFI_DISCONNECTED)
+			if(measure.broken)
 			{
-				WIFI_LED_OFF;
-				WiFi_StartWiFiConnecting("FunBox-83CB", "domek123");
+				ERROR_LED_ON;
+				FUN_LED_ON;
+				DHT11Init();
+				measure.broken=0;
+				FUN_LED_OFF;
+				ERROR_LED_OFF;
 			}
-			else
+			if((CLOCK-measure.lastTime)>MEASUREMENT_SEP)
 			{
-				WIFI_LED_ON;
-				
-				if(measure.dataPrepared)
+				if(WiFi_IsWiFiConnected()==WIFI_DISCONNECTED)
 				{
-					if(measure.talking==1)
+					WIFI_LED_OFF;
+					WiFi_StartWiFiConnecting(sysCfg.WiFi_ssid, sysCfg.WiFi_pass);
+				}
+				else
+				{
+					WIFI_LED_ON;
+					
+					if(measure.dataPrepared)
 					{
-						strcpy((char *)rxLocker, (char *)_UART1_RxLine);
-						//If server resp clear data prepared and talking
-						if(Server_checkForResponse((char *)rxLocker))
+						if(measure.talking==1)
 						{
-							measure.talking=0;
-							measure.dataPrepared=0;
-							//Set update clock
-							measure.lastTime=CLOCK;
-							//serverJSONResp= JSON_FromString((char *)rxLocker);
+							strcpy((char *)rxLocker, (char *)_UART1_RxLine);
+							//If server resp clear data prepared and talking
+							if(Server_checkForResponse((char *)rxLocker))
+							{
+								measure.talking=0;
+								measure.dataPrepared=0;
+								//Set update clock
+								measure.lastTime=CLOCK;
+								//serverJSONResp= JSON_FromString((char *)rxLocker);
+							}
+						}
+						else
+						{
+							Server_ConnectTo("www.dawidkulpa.pl");
+							measure.talking=1;
+							Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
 						}
 					}
 					else
 					{
-						Server_ConnectTo("www.dawidkulpa.pl");
-						measure.talking=1;
-						Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
+						FUN_LED_ON;
+		
+						//Get and set soil moisture data
+						plant[0].soil_moisture= getSoilMoisture();
+						sprintf(soilMoistureText, "%d", plant[0].soil_moisture);
+						
+						//Get and set air humidity and temperature data
+						dhtStateCode=getDHTData(&(plant[0].temperature), &(plant[0].air_humidity));
+						
+					
+						if(dhtStateCode)
+						{
+							//Set -1 for invalid data
+							measure.broken=1;
+							sprintf(airHumidityText, "-1");
+							sprintf(temperatureText, "-1");
+						}
+						else
+						{
+							//Set valid data
+							sprintf(airHumidityText, "%d", plant[0].air_humidity);
+							sprintf(temperatureText, "%d", plant[0].temperature);
+						}
+						
+						//Get insolation
+							sprintf(insolationText, "%d", getInsolation());
+						
+						//Check if watering
+						if(plant[0].soil_moisture<40)
+							httpVars[3].value="1";
+						else
+							httpVars[3].value="0";
+						
+						//Set data prepared
+						if(!measure.broken)
+						{
+							measure.dataPrepared=1;
+						}
+						
+						FUN_LED_OFF;
 					}
-				}
-				else
-				{
-					FUN_LED_ON;
-	
-					//Get and set soil moisture data
-					plant[0].soil_moisture= getSoilMoisture();
-					sprintf(soilMoistureText, "%d", plant[0].soil_moisture);
-					
-					//Get and set air humidity and temperature data
-					dhtStateCode=getDHTData(&(plant[0].temperature), &(plant[0].air_humidity));
-					
-				
-					if(dhtStateCode)
-					{
-						//Set -1 for invalid data
-						measure.broken=1;
-						sprintf(airHumidityText, "-1");
-						sprintf(temperatureText, "-1");
-					}
-					else
-					{
-						//Set valid data
-						sprintf(airHumidityText, "%d", plant[0].air_humidity);
-						sprintf(temperatureText, "%d", plant[0].temperature);
-					}
-					
-					//Get insolation
-						sprintf(insolationText, "%d", getInsolation());
-					
-					//Check if watering
-					if(plant[0].soil_moisture<40)
-						httpVars[3].value="1";
-					else
-						httpVars[3].value="0";
-					
-					//Set data prepared
-					if(!measure.broken)
-					{
-						measure.dataPrepared=1;
-					}
-					
-					FUN_LED_OFF;
 				}
 			}
 		}
-				
-		/* CONFIG MODE LOOP */
 		
+		/* CONFIG MODE LOOP */
+		else if(sysCfg.mode==SYS_MODE_CONFIG)
+		{
+			Server_RxListen();
+			
+			if((CLOCK-measure.lastTime)>0)
+			{
+				WIFI_LED_TOG;
+				FUN_LED_TOG;
+				measure.lastTime=CLOCK;
+			}
+		}	
 	}
 	
 	return 0;

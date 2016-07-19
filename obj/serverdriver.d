@@ -27,3 +27,4 @@
 .\obj\serverdriver.o: ..\..\libs\HighDrv\high_GPIODrv.h
 .\obj\serverdriver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\serverdriver.o: fun\coreinit.h
+.\obj\serverdriver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

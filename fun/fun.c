@@ -3,7 +3,7 @@
 
 #include "fun.h"
 
-uint16_t adcData[5];
+uint16_t adcData[6];
 
 /**
 *	@brief Call to show error
@@ -57,12 +57,11 @@ void WiFiInit(uint8_t mode)
 		
 	if(mode==WIFI_MODE_AP)
 	{
-		errorCode=WiFi_InitApMode("PlantCloudSystem","mynewplanttest",ESP8266_ENMODE_WAP_WAP2_PSK);
+		errorCode=WiFi_InitApMode("PlantCloudSystem","mynewplantpass",ESP8266_ENMODE_WAP_WAP2_PSK);
 	}
 	else
 	{
 		errorCode=WiFi_InitClientMode();
-		//errorCode=WiFi_StartWiFiConnecting("FunBox-83CB","domek123");
 	}
 	
 	if(errorCode==ESP8266_STATE_INIT_ERROR){
@@ -79,7 +78,7 @@ void WiFiInit(uint8_t mode)
 */
 void SoilHygrometerInsolationInit(void)
 {
-	DMAforADC_config((unsigned long int)(&adcData[0]), 5);
+	DMAforADC_config((unsigned long int)(&adcData[0]), 6);
 	ADC_config();
 	
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
@@ -102,16 +101,43 @@ void DHT11Init(void)
 
 void MemoryInit(SystemConfig_dt *sysCfg)
 {
-	I2C1_init();
-	_delay_ms(20);
+	uint8_t i;
+	uint8_t readResult;
 	
-	if(EERead_Byte(EE_ADR_FIRSTRUN))
+	EEInit(0xa0);
+	_delay_ms(100);
+	
+	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
+	
+	if(readResult)
 	{
+		EEWrite_String(EE_ADR_SSID, "");
+		EEWrite_String(EE_ADR_PASS, "");
+		EEWrite_String(EE_ADR_USER_LOGIN, "");
+		EEWrite_String(EE_ADR_USER_PASS, "");
 		
+		for(i=0; i<4; i++)
+		{
+			EEWrite_String(EE_ADR_PLANTBASE_NAME+i, "");
+		}
+		
+		sysCfg->mode= SYS_MODE_FIRSTRUN;
 	}
 	else
 	{
+		EEWrite_Byte(EE_ADR_FIRSTRUN, 1);
 		
+		sysCfg->WiFi_ssid= EERead_String(EE_ADR_SSID);
+		sysCfg->WiFi_pass= EERead_String(EE_ADR_PASS);
+		sysCfg->user_login= EERead_String(EE_ADR_USER_LOGIN);
+		sysCfg->user_pass= EERead_String(EE_ADR_USER_PASS);
+		
+		sysCfg->plantsCnt= EERead_Byte(EE_ADR_PLANTSCNT);
+		
+		for(i=0; i<sysCfg->plantsCnt; i++)
+		{
+			
+		}
 	}
 }
 
@@ -134,10 +160,10 @@ uint8_t StartSys(SystemConfig_dt *sysCfg)
 	MemoryInit(sysCfg);
 	
 	
-	if(WIFIMODE_BUTTON_STATE)
+	if(WIFIMODE_BUTTON_STATE | sysCfg->mode==SYS_MODE_FIRSTRUN)
 	{
 		WiFiInit(WIFI_MODE_AP);
-		Server_StartRxListener("<h1>Hi, my name is Plant!</h1><p>First set up my configuration</p>");
+		Server_StartRxListener("{\"Answ\": \"Hello!\"}");
 		sysCfg->mode=SYS_MODE_CONFIG;
 	}
 	else

@@ -17,12 +17,13 @@ typedef struct{
 
 #define SYS_MODE_NORMAL			0
 #define SYS_MODE_CONFIG			1
+#define SYS_MODE_FIRSTRUN		2
 
 typedef struct{
 	uint8_t mode;
 	uint8_t plantsCnt;
-	char *userLogin;
-	char *userPass;
+	char *user_login;
+	char *user_pass;
 	char *WiFi_ssid;
 	char *WiFi_pass;
 } SystemConfig_dt;

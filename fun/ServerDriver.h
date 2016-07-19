@@ -6,6 +6,7 @@
 
 #include "stm32f10x.h"
 #include "esp8266Drv.h"
+#include "stdlib.h"
 
 typedef struct{
 	char *name;
@@ -15,6 +16,8 @@ typedef struct{
 typedef struct{
 	uint8_t id;
 	uint8_t handled;
+	uint8_t open;
+	char *postVars;
 } Client_dt;
 
 typedef enum {Host, Accept, ContentLength, ContentType } HttpHeaderPamars;

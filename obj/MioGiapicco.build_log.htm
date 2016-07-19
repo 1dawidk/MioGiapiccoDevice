@@ -27,22 +27,26 @@ Project File Date:  07/17/2016
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling I2cDrv.c...
-..\..\libs\BusDrv\I2C\I2cDrv.c(56): warning:  #940-D: missing return statement at end of non-void function "I2C1_write16_buf"
+compiling ServerDriver.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                                                  (uint8_t *)0
+fun\ServerDriver.c(55): warning:  #940-D: missing return statement at end of non-void function "Server_GetPOSTVar"
   }
-..\..\libs\BusDrv\I2C\I2cDrv.c: 1 warning, 0 errors
+fun\ServerDriver.c(60): warning:  #940-D: missing return statement at end of non-void function "Server_GetPOSTString"
+  }
+fun\ServerDriver.c(76): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                sscanf((const char*)_UART1_RxLine, "+IPD,%d,", &client.id);
+fun\ServerDriver.c: 4 warnings, 0 errors
 linking...
-.\obj\MioGiapicco.axf: Error: L6218E: Undefined symbol I2C1_read_buff (referred from eeprom.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-".\obj\MioGiapicco.axf" - 1 Error(s), 1 Warning(s).
+Program Size: Code=16332 RO-data=332 RW-data=52 ZI-data=3116  
+FromELF: creating hex file...
+".\obj\MioGiapicco.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

@@ -33,6 +33,7 @@
 .\obj\fun.o: fun\esp8266Drv.h
 .\obj\fun.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\fun.o: fun\ServerDriver.h
+.\obj\fun.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\fun.o: fun\WiFiMgr.h
 .\obj\fun.o: ..\..\libs\BusDrv\I2C/I2cDrv.h
 .\obj\fun.o: ..\MioGiapicco\fun/eeprom.h

@@ -23,3 +23,8 @@
 .\obj\eeprom.o: ..\..\libs\HighDrv\high_GPIODrv.h
 .\obj\eeprom.o: ..\MioGiapicco\def\typesdef.h
 .\obj\eeprom.o: ..\..\libs\HighDrv\EaseOfAccess.h
+.\obj\eeprom.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\eeprom.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\eeprom.o: fun\coreInit.h
+.\obj\eeprom.o: ..\MioGiapicco\def\pin_descr.h
+.\obj\eeprom.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
