@@ -18,6 +18,7 @@ typedef struct{
 	uint8_t handled;
 	uint8_t open;
 	char *postVars;
+	uint8_t configString;
 } Client_dt;
 
 typedef enum {Host, Accept, ContentLength, ContentType } HttpHeaderPamars;
@@ -31,10 +32,11 @@ typedef enum {POST, GET} HttpMethod;
 
 uint8_t Server_SendData(uint8_t connId, char *data);
 void Server_StartRxListener(char *newServerResp);
-uint8_t Server_RxListen(void);
+char* Server_RxListen(void);
 uint8_t Server_ConnectTo(char *URL);
 void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uint8_t varLen, HttpHeaderParam *httpReqParams, uint8_t paramsLen);
 uint8_t Server_checkForResponse(char *responseBuff);
+char* Server_getPOSTVar(char *varName, char* varsString);
 
 
 #endif

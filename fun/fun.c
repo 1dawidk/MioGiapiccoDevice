@@ -111,13 +111,18 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 	
 	if(readResult)
 	{
+		_delay_ms(5);
 		EEWrite_String(EE_ADR_SSID, "");
+		_delay_ms(5);
 		EEWrite_String(EE_ADR_PASS, "");
+		_delay_ms(5);
 		EEWrite_String(EE_ADR_USER_LOGIN, "");
+		_delay_ms(5);
 		EEWrite_String(EE_ADR_USER_PASS, "");
 		
 		for(i=0; i<4; i++)
 		{
+			_delay_ms(5);
 			EEWrite_String(EE_ADR_PLANTBASE_NAME+i, "");
 		}
 		
@@ -125,12 +130,15 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 	}
 	else
 	{
-		EEWrite_Byte(EE_ADR_FIRSTRUN, 1);
-		
+		_delay_ms(5);
 		sysCfg->WiFi_ssid= EERead_String(EE_ADR_SSID);
+		_delay_ms(5);
 		sysCfg->WiFi_pass= EERead_String(EE_ADR_PASS);
+		_delay_ms(5);
 		sysCfg->user_login= EERead_String(EE_ADR_USER_LOGIN);
+		_delay_ms(5);
 		sysCfg->user_pass= EERead_String(EE_ADR_USER_PASS);
+		_delay_ms(5);
 		
 		sysCfg->plantsCnt= EERead_Byte(EE_ADR_PLANTSCNT);
 		
@@ -170,6 +178,7 @@ uint8_t StartSys(SystemConfig_dt *sysCfg)
 	{
 		WiFiInit(WIFI_MODE_CLIENT);
 		sysCfg->mode=SYS_MODE_NORMAL;
+		WiFi_StartWiFiConnecting(sysCfg->WiFi_ssid, sysCfg->WiFi_pass);
 	}
 	
 	return 0;

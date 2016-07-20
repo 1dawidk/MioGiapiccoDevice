@@ -20,6 +20,8 @@ int main(void)
 	//Time variables
 	Measure measure;
 	
+	char *configStr;
+	char *tmpStr;
 	JSON serverJSONResp;
 	
 	//System init	
@@ -168,7 +170,29 @@ int main(void)
 		/* CONFIG MODE LOOP */
 		else if(sysCfg.mode==SYS_MODE_CONFIG)
 		{
-			Server_RxListen();
+			if(configStr=Server_RxListen())
+			{
+				tmpStr= Server_getPOSTVar("wifiSSID", configStr);
+				EEWrite_String(EE_ADR_SSID, tmpStr);
+				_delay_ms(20);
+				
+				free(tmpStr);
+				tmpStr= Server_getPOSTVar("wifiPass", configStr);
+				EEWrite_String(EE_ADR_PASS, tmpStr);
+				_delay_ms(20);
+				
+				free(tmpStr);
+				tmpStr= Server_getPOSTVar("userLogin", configStr);
+				EEWrite_String(EE_ADR_USER_LOGIN, tmpStr);
+				_delay_ms(20);
+				
+				free(tmpStr);
+				tmpStr= Server_getPOSTVar("userPass", configStr);
+				EEWrite_String(EE_ADR_USER_PASS, tmpStr);
+				_delay_ms(20);
+				
+				EEWrite_Byte(EE_ADR_FIRSTRUN, FALSE);
+			}
 			
 			if((CLOCK-measure.lastTime)>0)
 			{

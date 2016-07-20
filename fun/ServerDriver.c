@@ -29,46 +29,55 @@ uint8_t Server_SendData(uint8_t connId, char *data)
 	return SERVER_RESPONSE_OK;
 }
 
-char* String_get(char *from, char *to, char *of)
+char* Server_GetPOSTVars(const char *httpHeader)
 {
-	char *start= strstr(of, from);
-	char *stop= strstr(of, to);
-	uint8_t len;
-	
-	if(start && stop && (start<stop))
-	{
-		len
-	}
-}
-
-char* Server_GetPOSTVar(char *name)
-{
-	char *inStrPos= strstr((const char*)_UART1_RxLine, name);
-	uint8_t len= strlen(name);
-	uint8_t i;
-	
+	char *start;
+	int content_length=0;
 	char *result;
 	
-	if(inStrPos)
+	start= strstr(httpHeader, "Content-Length: ");
+	sscanf(start, "Content-Length: %d", &content_length);
+	start= strstr(httpHeader, "\r\n\r\nMethod");
+	
+	if(content_length && start)
 	{
-		inStrPos+=len+1;
-		i=0;
+		start+=4;
+		result= malloc(sizeof(char)*content_length+1);
+		strncpy(result, start, content_length);
+		result[content_length]='\0';
 		
-		while(inStrPos[i]!='&' && inStrPos[i]!='\r')
-			i++;
-		
-		i++;
-		
-		result= (char *)malloc(sizeof(char)*i);
-		
-		strncpy(result, inStrPos, i-1);
-		result[i-1]=0;
+		return result;
 	}
+	
+	return 0;
 }
 
-char *Server_GetPOSTString(void)
+char* Server_getPOSTVar(char *varName, char* varsString)
 {
+	char *start= strstr(varsString, varName);
+	char *stop= strstr(start, "&");
+	char *value;
+	uint8_t len;
 	
+	if(start)
+	{
+		if(stop)
+		{
+			len= stop-start-1-strlen(varName);
+		}
+		else
+		{
+			len= strlen(varsString)-(start-varsString)-1-strlen(varName);
+		}
+		
+		value= malloc(sizeof(char)*len+1);
+		strncpy(value, start+strlen(varName)+1, len);
+		value[len]='\0';
+		
+		return value;
+	}
+	
+	return 0;
 }
 
 void Server_StartRxListener(char *newServerResp)
@@ -77,11 +86,13 @@ void Server_StartRxListener(char *newServerResp)
 	serverResp= newServerResp;
 }
 
-uint8_t Server_RxListen(void)
+char* Server_RxListen(void)
 {
 	char idStr[3];
-	char *postValue;
-	char *pos;
+	uint8_t res;
+	char *method;
+	
+	client.configString=0;
 	
 	if(strstr((const char*)_UART1_RxLine, "+IPD"))
 	{
@@ -92,31 +103,40 @@ uint8_t Server_RxListen(void)
 	
 	if(client.open)
 	{
-		pos= strstr((const char*)_UART1_RxLine, "CLOSE");
-		if(pos)
+		if(strstr((const char*)_UART1_RxLine, "\r\n\r\nMethod"))
 		{
-			UART1_lock();
-			client.postVars= (char *)malloc(sizeof(char)*100);
-			strncpy(client.postVars, 
+			_delay_ms(10);
+			client.postVars=Server_GetPOSTVars((const char*)_UART1_RxLine);
 			client.open=FALSE;
+			UART1_flushRx();
 		}
 	}
 	else if(!client.handled)
 	{
-		if(!strcmp(postValue, "Talk"))
-		{
-			Server_SendData(client.id, (char *)serverResp);
+		method= Server_getPOSTVar("Method", client.postVars);
+		res=strcmp(method, "Talk");
+			if(!res)
+			{
+				Server_SendData(client.id, (char *)serverResp);
+			}
+			else
+			{
+				res=strcmp(method, "Config");
+				if(!res)
+				{
+					Server_SendData(client.id, "{\"Answ\": \"OK!\"}");
+					client.configString=1;
+				}
+			}
+			
 			sprintf(idStr, "%d", client.id);
 			esp8266_sendData(ESP8266_CMD_CLOSE, idStr);
 			client.handled=TRUE;
-			UART1_unlock();
-		}
-		else
-		{
-			client.handled=TRUE;
-		}
-		
-		free(client.postVars);
+			
+			if(client.configString)
+				return client.postVars;
+			
+			free(client.postVars);
 	}
 		
 		return 0;

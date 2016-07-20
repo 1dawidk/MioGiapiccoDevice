@@ -21,6 +21,15 @@ void esp8266_sendData(char *cmd, char *data)
 	UART1_putStr("\r\n");
 }
 
+void esp8266_sendDataNoClear(char *cmd, char *data)
+{
+	UART1_putStr("AT+");
+	UART1_putStr(cmd);
+	UART1_putStr("=");
+	UART1_putStr(data);
+	UART1_putStr("\r\n");
+}
+
 void esp8266_sendAsk(char *cmd)
 {
 	UART1_flushRx();
