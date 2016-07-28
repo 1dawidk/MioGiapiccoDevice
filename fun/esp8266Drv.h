@@ -47,6 +47,7 @@
 #define ESP8266_RESPONSE_OK					0
 #define ESP8266_RESPONSE_ERROR			1
 #define ESP8266_RESPONSE_UNKNOWN		2
+#define ESP8266_RESPONSE_BUSY				3
 
 /**
 * @brief 			Send command to ESP8266

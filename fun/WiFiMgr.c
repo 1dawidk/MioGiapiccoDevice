@@ -60,8 +60,12 @@ uint8_t WiFi_StartWiFiConnecting(char *SSID, char *pass)
 
 uint8_t WiFi_IsWiFiConnected(void)
 {
+	uint8_t esp8266_response;
+	
 	esp8266_sendAsk(ESP8266_CMD_JAP);
-	if(esp8266_waitForSpecResp("No AP", 2)==ESP8266_RESPONSE_OK)
+	esp8266_response= esp8266_waitForSpecResp("No AP", 2);
+	
+	if(esp8266_response==ESP8266_RESPONSE_OK || esp8266_response==ESP8266_RESPONSE_BUSY)
 	{
 		return WIFI_DISCONNECTED;
 	}

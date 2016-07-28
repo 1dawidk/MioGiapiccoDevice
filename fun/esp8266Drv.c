@@ -75,7 +75,11 @@ uint8_t esp8266_waitForSpecResp(char *resp, uint8_t timeout)
 {
 	int endClk=CLOCK+timeout+1;
 	
-	while(!strstr((const char*)_UART1_RxLine, resp) && endClk>CLOCK);
+	while(!strstr((const char*)_UART1_RxLine, resp) && endClk>CLOCK)
+	{
+		if(strstr((const char*)_UART1_RxLine, "busy"))
+			return ESP8266_RESPONSE_BUSY;
+	}
 	
 	if(endClk>CLOCK)
 		return ESP8266_RESPONSE_OK;

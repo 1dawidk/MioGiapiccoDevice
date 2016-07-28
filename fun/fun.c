@@ -103,29 +103,16 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 {
 	uint8_t i;
 	uint8_t readResult;
+	char *readStr;
+	
 	
 	EEInit(0xa0);
 	_delay_ms(100);
 	
 	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
 	
-	if(readResult)
-	{
-		_delay_ms(5);
-		EEWrite_String(EE_ADR_SSID, "");
-		_delay_ms(5);
-		EEWrite_String(EE_ADR_PASS, "");
-		_delay_ms(5);
-		EEWrite_String(EE_ADR_USER_LOGIN, "");
-		_delay_ms(5);
-		EEWrite_String(EE_ADR_USER_PASS, "");
-		
-		for(i=0; i<4; i++)
-		{
-			_delay_ms(5);
-			EEWrite_String(EE_ADR_PLANTBASE_NAME+i, "");
-		}
-		
+	if(readResult && readStr)
+	{		
 		sysCfg->mode= SYS_MODE_FIRSTRUN;
 	}
 	else
@@ -149,6 +136,11 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 	}
 }
 
+uint8_t RegisterToServer(void)
+{
+	
+}
+
 
 /**
 *	@brief Used to start Plant System
@@ -162,11 +154,13 @@ uint8_t StartSys(SystemConfig_dt *sysCfg)
 	ERROR_LED_OFF;
 	WIFI_LED_OFF;
 	
+	
+	FUN_LED_ON;
 	EngineInit();
 	SoilHygrometerInsolationInit();
 	DHT11Init();
 	MemoryInit(sysCfg);
-	
+	FUN_LED_OFF;
 	
 	if(WIFIMODE_BUTTON_STATE | sysCfg->mode==SYS_MODE_FIRSTRUN)
 	{

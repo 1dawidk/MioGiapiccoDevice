@@ -12,6 +12,8 @@
 //*******************************************
 
 //############################## PLANT SYSTEM
+#define DEVICE_ID									0x001
+
 #define WIFI_MODE_AP							0
 #define WIFI_MODE_CLIENT					1
 
@@ -54,6 +56,9 @@
 #define WIFI_GPIO0_L							SET_SEG(WIFI_GPIO_SEG) &= ~WIFI_GPIO0_PIN
 #define WIFI_GPIO2_H							SET_SEG(WIFI_GPIO_SEG) |= WIFI_GPIO2_PIN
 #define WIFI_GPIO2_L							SET_SEG(WIFI_GPIO_SEG) &= ~WIFI_GPIO2_PIN
+
+#define ENGINE_L									SET_SEG(ENGINE_SEG) &= ~ENGINE_PIN;
+#define ENGINE_H									SET_SEG(ENGINE_SEG) |= ENGINE_PIN;
 //*******************************************
 
 //############################## DH11
@@ -75,15 +80,14 @@
 //##################################### POMIARY
 #define MAX_SOILMOISTURE					2750
 #define MAX_AIRHUMIDITY						0x0850
-#define MAX_INSOLATION						225;
+#define MAX_INSOLATION						550;
 
 #define SOILMOISTURE_DEVICE_ON		SET_SEG(SOILHYGROMETER_ONOFF_SEG)&=~SOILHYGROMETER_ONOFF_PIN
 #define SOILMOISTURE_DEVICE_OFF		SET_SEG(SOILHYGROMETER_ONOFF_SEG)|=SOILHYGROMETER_ONOFF_PIN
 //*******************************************
 
 //##################################### CZASY
-#define CONNECTION_SEP						300
-#define MEASUREMENT_SEP						30
+#define MEASUREMENT_SEP						600
 //*******************************************
 
 //##################################### USART
@@ -103,11 +107,11 @@
 #define EE_ADR_FIRSTRUN						0
 #define EE_ADR_PLANTSCNT					1
 
-#define EE_ADR_SSID								0
-#define EE_ADR_PASS								1
+#define EE_ADR_SSID							0
+#define EE_ADR_PASS							1
 #define EE_ADR_USER_LOGIN					2
 #define EE_ADR_USER_PASS					3
-#define EE_ADR_PLANTBASE_NAME			4
+#define EE_ADR_PLANTBASE_NAME				4
 //*******************************************
 
 #endif

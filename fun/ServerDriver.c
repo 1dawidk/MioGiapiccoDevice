@@ -6,9 +6,9 @@
 volatile char *serverResp;
 Client_dt client;
 
-#define SERVER_HEADER_OK "HTTP/1.1 200 OK\r\nConnection:close\r\n\r\n"
-#define SERVER_HEADER_NOTFOUND "HTTP/1.1 404 Not Found\r\nConnection:close\r\n\r\n"
-#define SERVER_REQ_HEAD 			" HTTP/1.1"
+#define SERVER_HEADER_OK 				"HTTP/1.1 200 OK\r\nConnection:close\r\n\r\n"
+#define SERVER_HEADER_NOTFOUND 	"HTTP/1.1 404 Not Found\r\nConnection:close\r\n\r\n"
+#define SERVER_REQ_HEAD 				" HTTP/1.1"
 
 extern volatile uint32_t seconds;
 
@@ -290,7 +290,7 @@ uint8_t Server_checkForResponse(char *responseBuff)
 {
 	char *dataP;
 	
-	if(strstr((const char*)_UART1_RxLine, "200 OK"))
+	if(strstr((const char*)_UART1_RxLine, "HTTP/1.1"))
 	{
 		dataP=strstr((const char*)_UART1_RxLine, "\r\n\r\n");
 		if(dataP)
@@ -298,6 +298,12 @@ uint8_t Server_checkForResponse(char *responseBuff)
 			strcpy(responseBuff, dataP+4);
 			return 1;
 		}
+
+		return 3;
+	}
+	else if(strstr((const char*)_UART1_RxLine, "busy"))
+	{
+		return 2;
 	}
 	
 	return 0;

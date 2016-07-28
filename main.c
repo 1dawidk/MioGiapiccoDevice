@@ -5,7 +5,10 @@ int main(void)
 	//System variables
 	SystemConfig_dt sysCfg;
 	uint8_t dhtStateCode;
+	uint8_t server_responseCode;
 	Plant_dt plant[4];
+	
+	uint32_t talkStartClk;
 	
 	//Int to text buff
 	char soilMoistureText[5]="";
@@ -40,10 +43,10 @@ int main(void)
 	/*HTTP VARIABLES*/
 	/*Login*/
 	httpVars[0].name="Login";
-	httpVars[0].value=sysCfg.user_login;
+	httpVars[0].value="1dawidk";
 	
 	httpVars[1].name="Pass";
-	httpVars[1].value=sysCfg.user_pass;
+	httpVars[1].value="sikakama1";
 	
 	httpVars[2].name="PlantId";
 	httpVars[2].value="5";
@@ -71,7 +74,9 @@ int main(void)
 	
 	httpReqParams[3].name=ContentType;
 	httpReqParams[3].value="application/x-www-form-urlencoded";	
-
+	
+	measure.lastTime=0;
+	
 	//Main inf loop
 	while(1)
 	{		
@@ -87,9 +92,10 @@ int main(void)
 				FUN_LED_OFF;
 				ERROR_LED_OFF;
 			}
+			
 			if((CLOCK-measure.lastTime)>MEASUREMENT_SEP)
 			{
-				if(WiFi_IsWiFiConnected()==WIFI_DISCONNECTED)
+				if(!measure.talking && WiFi_IsWiFiConnected()!=WIFI_CONNECTED)
 				{
 					WIFI_LED_OFF;
 					WiFi_StartWiFiConnecting(sysCfg.WiFi_ssid, sysCfg.WiFi_pass);
@@ -103,8 +109,9 @@ int main(void)
 						if(measure.talking==1)
 						{
 							strcpy((char *)rxLocker, (char *)_UART1_RxLine);
+							server_responseCode= Server_checkForResponse((char *)rxLocker);
 							//If server resp clear data prepared and talking
-							if(Server_checkForResponse((char *)rxLocker))
+							if(server_responseCode==1)
 							{
 								measure.talking=0;
 								measure.dataPrepared=0;
@@ -112,12 +119,33 @@ int main(void)
 								measure.lastTime=CLOCK;
 								//serverJSONResp= JSON_FromString((char *)rxLocker);
 							}
+							else if(server_responseCode==2)
+							{
+								_delay_ms(1000);
+								_delay_ms(1000);
+								measure.talking=0;
+								measure.dataPrepared=0;
+							}
+							else if(server_responseCode==3)
+							{
+								measure.talking=0;
+								measure.dataPrepared=0;
+								//Set update clock
+								measure.lastTime=CLOCK;
+							}
+							
+							if(CLOCK-talkStartClk>30)
+							{
+								measure.talking=0;
+								measure.dataPrepared=0;
+							}
 						}
 						else
 						{
 							Server_ConnectTo("www.dawidkulpa.pl");
 							measure.talking=1;
 							Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
+							talkStartClk=CLOCK;
 						}
 					}
 					else

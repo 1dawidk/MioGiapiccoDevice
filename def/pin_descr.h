@@ -24,8 +24,8 @@
 #define SOILHYGROMETER_ONOFF_SEG	C
 #define SOILHYGROMETER_ONOFF_PIN	P3
 
-#define ENGINE_SEG          			A
-#define ENGINE_PIN         				P3 
+#define ENGINE_SEG          			C
+#define ENGINE_PIN         				P9 
 
 /*####################################### WIFI MODULE */
 #define USART1_SEG								B

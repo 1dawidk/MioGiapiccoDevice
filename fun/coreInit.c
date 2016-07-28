@@ -112,7 +112,7 @@ void GPIO_config(void)
 	
 		//PWM
 			GPIO_InitStruct.GPIO_Pin= ENGINE_PIN;
-			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_AF_PP;
+			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_Out_PP;
 			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_50MHz;
 			GPIO_Init(GPIO_SEG(ENGINE_SEG), &GPIO_InitStruct);
 			

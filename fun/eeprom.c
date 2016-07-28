@@ -15,14 +15,14 @@ uint8_t EERead_Byte(uint16_t adr)
 {
 	uint8_t data;
 	
-	I2C2_read16_buf(sla | EEPROM_BLOCK1, adr, 1, &data);
+	I2C2_read16_buf(sla , adr+EEPROM_BYTE_ADR_START, 1, &data);
 	
 	return data;
 }
 
 void EEWrite_Byte(uint16_t adr, uint8_t data)
 {
-	I2C2_write16_buf(sla  | EEPROM_BLOCK1, adr, 1, &data);
+	I2C2_write16_buf(sla , adr+EEPROM_BYTE_ADR_START, 1, &data);
 }
 
 
@@ -32,13 +32,18 @@ char* EERead_String(uint16_t adr)
 	char *readResult;
 	uint8_t buff;
 
-	adr*=EEPROM_STRING_SIZE;
+	if(adr<EEPROM_STRING_MAX_CNT)
+	{
+		adr= (adr*EEPROM_STRING_MAX_LEN) + EEPROM_STRING_ADR_START;
+		
+		I2C2_read16_buf(sla, adr, 1, &buff);
+		readResult= malloc(sizeof(char)*buff);
+		I2C2_read16_buf(sla, adr+1, buff, (uint8_t *)readResult);
+		
+		return readResult;
+	}
 	
-	I2C2_read16_buf(sla | EEPROM_BLOCK0, adr, 1, &buff);
-	readResult= (char *)malloc(sizeof(char)*buff);
-	I2C2_read16_buf(sla | EEPROM_BLOCK0, adr+1, buff, readResult);
-	
-	return readResult;
+	return (char*)0;
 }
 
 void EEWrite_String(uint16_t adr, char* str)
@@ -46,15 +51,18 @@ void EEWrite_String(uint16_t adr, char* str)
 	uint8_t i;
 	uint8_t len= strlen(str)+1;
 	
-	adr*=EEPROM_STRING_SIZE;
+	if(adr<EEPROM_STRING_MAX_CNT)
+	{
+		adr= (adr*EEPROM_STRING_MAX_LEN) + EEPROM_STRING_ADR_START;
 	
-	if(len<EEPROM_STRING_SIZE)
-	{	
-		I2C2_write16_buf(sla | EEPROM_BLOCK0, adr, 1, &len);
-		for(i=0; i<len; i++)
-		{
-			_delay_ms(10);
-			I2C2_write16_buf(sla | EEPROM_WRITE | EEPROM_BLOCK0, adr+1+i, 1, &(str[i]));
+		if(len<EEPROM_STRING_MAX_LEN)
+		{	
+			I2C2_write16_buf(sla, adr, 1, &len);
+			for(i=0; i<len; i++)
+			{
+				_delay_ms(10);
+				I2C2_write16_buf(sla, adr+1+i, 1, &(str[i]));
+			}
 		}
 	}
 }
