@@ -136,9 +136,43 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 	}
 }
 
-uint8_t RegisterToServer(void)
+#define REGISTER_STATE_FINISH				0
+#define REGISTER_STATE_TALKING			1
+#define REGISTER_STATE_START				2
+
+uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg)
 {
+	uint32_t startClk=CLOCK;
+	uint8_t state=REGISTER_STATE_START;
+	HttpVar_dt httpVars[8];
 	
+	httpVars[0].name="Login";
+	httpVars[0].value=sysCfg->user_login;
+	
+	httpVars[1].name="Pass";
+	httpVars[1].value=sysCfg->user_pass;
+	
+	httpVars[2].name="DeviceId";
+	httpVars[2].value="001";
+	
+	httpVars[3].name="PlantCnt";
+	httpVars[3].value="1";
+	
+	while((CLOCK-startClk<10) && state!=REGISTER_STATE_FINISH)
+	{
+		switch(state)
+		{
+			case REGISTER_STATE_START:
+				Server_ConnectTo("www.dawidkulpa.pl");
+				Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
+				state=REGISTER_STATE_TALKING;
+				break;
+			
+			case REGISTER_STATE_TALKING:
+				
+				break;
+		}
+	}
 }
 
 
@@ -198,7 +232,7 @@ uint8_t getInsolation(void)
 	
 	SOILMOISTURE_DEVICE_ON;
 	_delay_ms(100);
-	insolation= (adcData[1]*100)/MAX_INSOLATION;
+	insolation= (adcData[5]*100)/MAX_INSOLATION;
 	_delay_ms(20);
 	SOILMOISTURE_DEVICE_OFF;
 	
@@ -278,11 +312,6 @@ uint8_t getDHTData(uint8_t *temp, uint8_t *RH)
 void setEngineRPM(uint16_t rpm)
 {
 	TIM2->CCR4= rpm;
-}
-
-void NormalModeLoopStep(void)
-{
-
 }
 
 #endif

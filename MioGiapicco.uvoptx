@@ -169,7 +169,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U51FF68065065545725101987 -O9454 -S0 -C0 -A0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIE1 -TIP0 -FO31 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_128.FLM -FS08000000 -FL020000 -FP0($$Device:STM32F103R8$Flash\STM32F10x_128.FLM)</Name>
+          <Name>-U51FF68065065545725101987 -O9422 -S0 -C0 -A0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIE1 -TIP0 -FO31 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_128.FLM -FS08000000 -FL020000 -FP0($$Device:STM32F103R8$Flash\STM32F10x_128.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -177,24 +177,7 @@
           <Name>UL2CM3(-S0 -C0 -P0 )  -FN1 -FC1000 -FD20000000 -FF0STM32F10x_128 -FL020000 -FS08000000 -FP0($$Device:STM32F103R6$Flash\STM32F10x_128.FLM)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>41</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\fun\eeprom.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-      </Breakpoint>
+      <Breakpoint/>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -281,7 +264,7 @@
         <Ww>
           <count>4</count>
           <WinNumber>2</WinNumber>
-          <ItemText>sysCfg.WiFi_ssid</ItemText>
+          <ItemText>sysCfg-&gt;user_pass</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
@@ -307,6 +290,11 @@
           <count>9</count>
           <WinNumber>2</WinNumber>
           <ItemText>readResult</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>readStr</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
