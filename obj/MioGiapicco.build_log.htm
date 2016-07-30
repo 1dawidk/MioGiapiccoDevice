@@ -27,21 +27,65 @@ Project File Date:  07/17/2016
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling main.c...
+..\MioGiapicco\def/def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                                                  (uint8_t *)0
+main.c(277): warning:  #111-D: statement is unreachable
+        return 0;
+main.c(34): warning:  #177-D: variable "serverJSONResp" was declared but never referenced
+        JSON serverJSONResp;
+main.c: 3 warnings, 0 errors
 compiling fun.c...
-fun\fun.c(159): warning:  #940-D: missing return statement at end of non-void function "RegisterToServer"
-  }
+fun\fun.c(195): warning:  #167-D: argument of type "volatile char *" is incompatible with parameter of type "char *"
+                                        server_responseStr=Server_GetBody(_UART1_RxLine);
 fun\fun.c: 1 warning, 0 errors
+compiling esp8266Drv.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                                                  (uint8_t *)0
+fun\esp8266Drv.c(90): warning:  #1-D: last line of file ends without a newline
+  #endif
+fun\esp8266Drv.c: 2 warnings, 0 errors
+compiling ServerDriver.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                                                  (uint8_t *)0
+fun\ServerDriver.c(99): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                sscanf((const char*)_UART1_RxLine, "+IPD,%d,", &client.id);
+fun\ServerDriver.c(289): warning:  #177-D: variable "dataP" was declared but never referenced
+        char *dataP;
+fun\ServerDriver.c: 3 warnings, 0 errors
+compiling WiFiMgr.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                                                  (uint8_t *)0
+fun\WiFiMgr.c(48): warning:  #940-D: missing return statement at end of non-void function "WiFi_InitClientMode"
+  }
+fun\WiFiMgr.c(42): warning:  #177-D: variable "apData" was declared but never referenced
+        char apData[60];
+fun\WiFiMgr.c(59): warning:  #940-D: missing return statement at end of non-void function "WiFi_StartWiFiConnecting"
+  }
+fun\WiFiMgr.c: 4 warnings, 0 errors
+compiling eeprom.c...
+fun\eeprom.c(64): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+                                I2C2_write16_buf(sla, adr+1+i, 1, &(str[i]));
+fun\eeprom.c: 1 warning, 0 errors
+compiling DMADrv.c...
+compiling UartDrv.c...
+..\MioGiapicco\def\def.h(11): warning:  #47-D: incompatible redefinition of macro "NULL" (declared at line 61 of "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL                                                                                  (uint8_t *)0
+..\..\libs\BusDrv\UART\UartDrv.c: 1 warning, 0 errors
+compiling I2cDrv.c...
+compiling stm32f10x_it.c...
+compiling coreInit.c...
 linking...
-Program Size: Code=17076 RO-data=332 RW-data=44 ZI-data=3132  
+Program Size: Code=18116 RO-data=332 RW-data=44 ZI-data=3132  
 FromELF: creating hex file...
-".\obj\MioGiapicco.axf" - 0 Error(s), 1 Warning(s).
+".\obj\MioGiapicco.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:08
 </pre>
 </body>
 </html>

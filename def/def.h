@@ -25,7 +25,14 @@
 
 #define SERVER_SEND_PATH 					"/setPlantDataScript.php"
 #define SERVER_READ_PATH 					"/getPlantDataScript.php"
-#define SERVER_CFG_PATH						"/plantsConfigScript.php"
+#define SERVER_CFG_PATH						"/setDeviceConfigScript.php"
+
+#define SERVER_VAR_USER_LOGIN					"userLogin"
+#define SERVER_VAR_USER_PASS					"userPass"
+#define SERVER_VAR_WIFI_SSID					"wifiSSID"
+#define SERVER_VAR_WIFI_PASS					"wifiPass"
+#define SERVER_VAR_PLANTS_CNT					"PlantsCnt"
+#define SERVER_VAR_PLANT_NAME_BASE		"Plant"
 //*******************************************
 
 //##################################### LEDS
@@ -87,7 +94,7 @@
 //*******************************************
 
 //##################################### CZASY
-#define MEASUREMENT_SEP						600
+#define MEASUREMENT_SEP						30
 //*******************************************
 
 //##################################### USART
@@ -107,11 +114,11 @@
 #define EE_ADR_FIRSTRUN						0
 #define EE_ADR_PLANTSCNT					1
 
-#define EE_ADR_SSID							0
-#define EE_ADR_PASS							1
+#define EE_ADR_SSID								0
+#define EE_ADR_PASS								1
 #define EE_ADR_USER_LOGIN					2
 #define EE_ADR_USER_PASS					3
-#define EE_ADR_PLANTBASE_NAME				4
+#define EE_ADR_PLANTNAME_BASE			4
 //*******************************************
 
 #endif

@@ -5,14 +5,13 @@
 #include "stdint.h"
 
 typedef struct{
-	char name[20];
+	char *name;
 	uint32_t id;
 	
 	uint8_t soil_moisture;
 	uint8_t air_humidity;
 	uint8_t temperature;
 	uint8_t insolation;
-	uint8_t wattering;
 }	Plant_dt;
 
 #define SYS_MODE_NORMAL			0
@@ -30,6 +29,7 @@ typedef struct{
 
 typedef struct{
 	uint32_t lastTime;
+	uint32_t talkStart;
 	uint8_t talking;
 	uint8_t dataPrepared;
 	uint8_t broken;

@@ -5,6 +5,8 @@ int main(void)
 	//System variables
 	SystemConfig_dt sysCfg;
 	uint8_t dhtStateCode;
+	uint8_t configRegister=0;
+	uint8_t registerCnt=0;
 	uint8_t server_responseCode;
 	Plant_dt plant[4];
 	
@@ -15,6 +17,7 @@ int main(void)
 	char airHumidityText[5]="";
 	char temperatureText[5]="";
 	char insolationText[5]="";
+	char idText[5]="";
 	
 	//Http connection variablels
 	HttpHeaderParam httpReqParams[4];
@@ -25,10 +28,13 @@ int main(void)
 	
 	char *configStr;
 	char *tmpStr;
+	char *postPlantName;
+	uint32_t tmpInt;
+	uint8_t i;
 	JSON serverJSONResp;
 	
 	//System init	
-	StartSys(&sysCfg);
+	StartSys(&sysCfg, plant);
 	
 	measure.talking=0;
 	measure.dataPrepared=0;
@@ -43,13 +49,13 @@ int main(void)
 	/*HTTP VARIABLES*/
 	/*Login*/
 	httpVars[0].name="Login";
-	httpVars[0].value="1dawidk";
+	httpVars[0].value=sysCfg.user_login;
 	
 	httpVars[1].name="Pass";
-	httpVars[1].value="sikakama1";
+	httpVars[1].value=sysCfg.user_pass;
 	
 	httpVars[2].name="PlantId";
-	httpVars[2].value="5";
+	httpVars[2].value=idText;
 	
 	httpVars[3].name="Watering";
 	httpVars[3].value="0";
@@ -81,7 +87,7 @@ int main(void)
 	while(1)
 	{		
 		/* NORMAL MODE LOOP */
-		if(sysCfg.mode==SYS_MODE_NORMAL)
+		if(sysCfg.mode==SYS_MODE_NORMAL && configRegister)
 		{
 			if(measure.broken)
 			{
@@ -142,6 +148,7 @@ int main(void)
 						}
 						else
 						{
+							sprintf(idText, "%d", plant[0].id);
 							Server_ConnectTo("www.dawidkulpa.pl");
 							measure.talking=1;
 							Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
@@ -195,29 +202,65 @@ int main(void)
 			}
 		}
 		
+		/* REGISTER CONFIG LOOP */
+		else if(sysCfg.mode==SYS_MODE_NORMAL && !configRegister)
+		{
+			registerCnt++;
+			_delay_ms(1000);
+			FUN_LED_ON;
+			if(!RegisterToServer(httpReqParams, &sysCfg, plant))
+			{
+				configRegister=1;
+			}
+			FUN_LED_OFF;
+		}
+		
 		/* CONFIG MODE LOOP */
 		else if(sysCfg.mode==SYS_MODE_CONFIG)
 		{
-			if(configStr=Server_RxListen())
+			configStr=Server_RxListen();
+			
+			if(configStr)
 			{
 				tmpStr= Server_getPOSTVar("wifiSSID", configStr);
 				EEWrite_String(EE_ADR_SSID, tmpStr);
 				_delay_ms(20);
+				free(tmpStr);				
 				
-				free(tmpStr);
 				tmpStr= Server_getPOSTVar("wifiPass", configStr);
 				EEWrite_String(EE_ADR_PASS, tmpStr);
 				_delay_ms(20);
-				
 				free(tmpStr);
+				
 				tmpStr= Server_getPOSTVar("userLogin", configStr);
 				EEWrite_String(EE_ADR_USER_LOGIN, tmpStr);
 				_delay_ms(20);
-				
 				free(tmpStr);
+				
 				tmpStr= Server_getPOSTVar("userPass", configStr);
 				EEWrite_String(EE_ADR_USER_PASS, tmpStr);
 				_delay_ms(20);
+				free(tmpStr);
+				
+				tmpStr= Server_getPOSTVar("PlantsCnt", configStr);
+				sscanf(tmpStr, "%d", &tmpInt);
+				EEWrite_Byte(EE_ADR_PLANTSCNT, tmpInt);
+				_delay_ms(20);
+				free(tmpStr);
+				
+				postPlantName= malloc(sizeof(char)*8);
+				
+				for(i=0; i<tmpInt; i++)
+				{
+					sprintf(postPlantName, "Plant%d", i);
+					tmpStr= Server_getPOSTVar(postPlantName, configStr);
+					EEWrite_String(EE_ADR_PLANTNAME_BASE+i, tmpStr);
+					_delay_ms(20);
+					free(tmpStr);
+				}
+				
+				free(postPlantName);
+				
 				
 				EEWrite_Byte(EE_ADR_FIRSTRUN, FALSE);
 			}

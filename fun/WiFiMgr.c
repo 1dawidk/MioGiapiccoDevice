@@ -9,28 +9,28 @@ uint8_t WiFi_InitApMode(char *SSID, char *pass, uint8_t enMode)
 	
 	uint32_t startTime=CLOCK;
 	esp8266_sendData(ESP8266_CMD_MODE, ESP8266_CWMODE_AP);
-	if(esp8266_waitForResp(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForResp(10)!=ESP8266_RESPONSE_OK)
 		return ESP8266_STATE_INIT_ERROR;
 	
 	
 	sprintf(apData, "\"%s\",\"%s\",3,%d", SSID, pass, enMode);
 	esp8266_sendData(ESP8266_CMD_SAP, apData);
-	if(esp8266_waitForResp(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForResp(3)!=ESP8266_RESPONSE_OK)
 		return ESP8266_STATE_INIT_ERROR;
 	
 	
 	esp8266_sendData(ESP8266_CMD_MUX, ESP8266_MUXMODE_MULTI);
-	if(esp8266_waitForResp(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForResp(3)!=ESP8266_RESPONSE_OK)
 		return ESP8266_STATE_INIT_ERROR;
 	
 	
 	esp8266_sendData(ESP8266_CMD_SERVER, "1,80");
-	if(esp8266_waitForResp(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForResp(3)!=ESP8266_RESPONSE_OK)
 		return ESP8266_STATE_INIT_ERROR;
 	
 	
 	esp8266_sendData(ESP8266_CMD_STO, "3");
-	if(esp8266_waitForResp(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForResp(3)!=ESP8266_RESPONSE_OK)
 		return ESP8266_STATE_INIT_ERROR;
 
 	
@@ -43,7 +43,7 @@ uint8_t WiFi_InitClientMode(void)
 	
 	uint32_t startTime=CLOCK;
 	esp8266_sendData(ESP8266_CMD_MODE, ESP8266_CWMODE_STA);
-	if(esp8266_waitForResp(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForResp(3)!=ESP8266_RESPONSE_OK)
 		return ESP8266_STATE_INIT_ERROR;
 }
 

@@ -15,8 +15,10 @@
 #include "WiFiMgr.h"
 #include "I2C/I2cDrv.h"
 #include "fun/eeprom.h"
+#include "fun/JSON.h"
 
-uint8_t StartSys(SystemConfig_dt *sysCfg);
+uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg, Plant_dt *plants);
+uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants);
 void DHT11Init(void);
 
 uint8_t getSoilMoisture(void);

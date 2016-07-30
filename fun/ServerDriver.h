@@ -37,6 +37,7 @@ uint8_t Server_ConnectTo(char *URL);
 void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uint8_t varLen, HttpHeaderParam *httpReqParams, uint8_t paramsLen);
 uint8_t Server_checkForResponse(char *responseBuff);
 char* Server_getPOSTVar(char *varName, char* varsString);
+char* Server_GetBody(char *httpHeader);
 
 
 #endif

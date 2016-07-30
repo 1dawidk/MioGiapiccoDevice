@@ -38,4 +38,4 @@
 .\obj\main.o: fun/WiFiMgr.h
 .\obj\main.o: ..\..\libs\BusDrv\I2C/I2cDrv.h
 .\obj\main.o: ..\MioGiapicco\fun/eeprom.h
-.\obj\main.o: fun/JSON.h
+.\obj\main.o: ..\MioGiapicco\fun/JSON.h

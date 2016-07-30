@@ -231,7 +231,7 @@ void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uin
 		dataLen+=strlen(httpVars[cnt].value);
 		dataLen+=2;
 	}
-	dataLen++;
+	dataLen--;
 	
 	sprintf(dataLenText,"%d",dataLen);
 	
@@ -281,8 +281,6 @@ void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uin
 		UART1_putStr(httpVars[cnt].value);
 		if(cnt<varLen-1)
 			UART1_putStr("&");
-		else
-			UART1_putStr("\r\n");
 	}
 }
 
@@ -290,20 +288,34 @@ uint8_t Server_checkForResponse(char *responseBuff)
 {
 	char *dataP;
 	
-	if(strstr((const char*)_UART1_RxLine, "HTTP/1.1"))
+	char* httpStart=strstr((const char*)_UART1_RxLine, "HTTP/1.1");
+	char* httpEnd=strstr((const char*)_UART1_RxLine, "CLOSED");
+	
+	if(httpStart && httpEnd && httpEnd>httpStart)
 	{
-		dataP=strstr((const char*)_UART1_RxLine, "\r\n\r\n");
-		if(dataP)
-		{
-			strcpy(responseBuff, dataP+4);
-			return 1;
-		}
-
-		return 3;
+		return 1;
 	}
-	else if(strstr((const char*)_UART1_RxLine, "busy"))
+	
+	return 0;
+}
+
+char* Server_GetBody(char *httpHeader)
+{
+	char *start;
+	int content_length=0;
+	char *result;
+	
+	start= strstr(httpHeader, "Content-Type: text/html\r\n\r\n");
+	sscanf(start, "Content-Type: text/html\r\n\r\n%x", &content_length);
+	
+	if(content_length && start)
 	{
-		return 2;
+		start+=strlen("Content-Type: text/html\r\n\r\n")+4;
+		result= malloc(sizeof(char)*content_length+4);
+		strncpy(result, start, content_length);
+		result[content_length]='\0';
+		
+		return result;
 	}
 	
 	return 0;

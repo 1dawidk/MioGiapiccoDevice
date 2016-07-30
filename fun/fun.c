@@ -38,6 +38,7 @@ void EngineInit(void)
 void WiFiInit(uint8_t mode)
 {
 	uint8_t errorCode;
+	uint32_t startClk;
 	
 	FUN_LED_ON;
 	DMAforUART1_RX_config((unsigned long int)&(_UART1_RxLine[0]), UART1_RX_LINE_SIZE);
@@ -49,8 +50,8 @@ void WiFiInit(uint8_t mode)
 	WIFI_GPIO0_H;
 	WIFI_GPIO2_H;
 	
-	_delay_ms(1000);
-	
+	startClk=CLOCK;
+	while(!strstr((const char*)_UART1_RxLine, "ready") && CLOCK-startClk<10);
 	
 	WIFI_LED_ON;
 	FUN_LED_ON;
@@ -93,30 +94,28 @@ void DHT11Init(void)
 	DHT11_DATA0_L;
 	
 	DHT11_OFF;
-	_delay_ms(900);
+	_delay_ms(100);
 	DHT11_ON;
 	
 	getDHTData(&tmp1, &tmp2);
 }
 
-void MemoryInit(SystemConfig_dt *sysCfg)
+void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
 	uint8_t i;
 	uint8_t readResult;
-	char *readStr;
-	
 	
 	EEInit(0xa0);
-	_delay_ms(100);
 	
 	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
 	
-	if(readResult && readStr)
+	if(readResult)
 	{		
 		sysCfg->mode= SYS_MODE_FIRSTRUN;
 	}
 	else
 	{
+		
 		_delay_ms(5);
 		sysCfg->WiFi_ssid= EERead_String(EE_ADR_SSID);
 		_delay_ms(5);
@@ -131,7 +130,8 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 		
 		for(i=0; i<sysCfg->plantsCnt; i++)
 		{
-			
+			_delay_ms(10);
+			plants->name= EERead_String(EE_ADR_PLANTNAME_BASE+i);
 		}
 	}
 }
@@ -140,23 +140,43 @@ void MemoryInit(SystemConfig_dt *sysCfg)
 #define REGISTER_STATE_TALKING			1
 #define REGISTER_STATE_START				2
 
-uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg)
+uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
 	uint32_t startClk=CLOCK;
+	uint8_t server_responseCode;
 	uint8_t state=REGISTER_STATE_START;
+	uint8_t register_errorCode=0;
+	uint8_t i;
+	char deviceIdStr[5];
+	char plantsCntStr[2];
+	char plantNameStr[8];
+	char *jValue;
+	char *server_responseStr;
 	HttpVar_dt httpVars[8];
 	
 	httpVars[0].name="Login";
-	httpVars[0].value=sysCfg->user_login;
+	httpVars[0].value=	sysCfg->user_login;
 	
 	httpVars[1].name="Pass";
 	httpVars[1].value=sysCfg->user_pass;
 	
 	httpVars[2].name="DeviceId";
-	httpVars[2].value="001";
+	sprintf(deviceIdStr, "%d", DEVICE_ID);
+	httpVars[2].value=deviceIdStr;
 	
-	httpVars[3].name="PlantCnt";
-	httpVars[3].value="1";
+	httpVars[3].name="PlantsCnt";
+	sprintf(plantsCntStr, "%d", sysCfg->plantsCnt);
+	httpVars[3].value=plantsCntStr;
+	
+	httpVars[4].name="Plant1";
+	httpVars[5].name="Plant2";
+	httpVars[6].name="Plant3";
+	httpVars[7].name="Plant4";
+	
+	for(i=0; i<sysCfg->plantsCnt; i++)
+	{
+		httpVars[4+i].value=plants[i].name;
+	}
 	
 	while((CLOCK-startClk<10) && state!=REGISTER_STATE_FINISH)
 	{
@@ -164,24 +184,78 @@ uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg
 		{
 			case REGISTER_STATE_START:
 				Server_ConnectTo("www.dawidkulpa.pl");
-				Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
+				UART1_flushRx();
+				Server_Request(POST, SERVER_CFG_PATH, httpVars, 4+sysCfg->plantsCnt, httpReqParams, 4);
 				state=REGISTER_STATE_TALKING;
 				break;
-			
 			case REGISTER_STATE_TALKING:
-				
+				server_responseCode= Server_checkForResponse((char *)_UART1_RxLine);
+				if(server_responseCode!=0)
+				{
+					server_responseStr=Server_GetBody(_UART1_RxLine);
+					
+					for(i=0; i<sysCfg->plantsCnt; i++)
+					{
+						sprintf(plantNameStr, "Plant%d", i+1);
+						jValue= JSON_getJValue(plantNameStr, server_responseStr);
+						sscanf(jValue, "%d", &(plants[i].id));
+						free(jValue);
+					}
+					
+					state= REGISTER_STATE_FINISH;
+					
+					free(server_responseStr);
+				}
 				break;
 		}
 	}
+	
+	if(CLOCK-startClk>10)
+		register_errorCode=1;
+	
+	return register_errorCode;
 }
 
+char *BuildAPResponse(SystemConfig_dt *sysCfg)
+{
+	char *response;
+	uint16_t responseLen=0;
+	uint8_t i;
+	
+	responseLen+= strlen("{\"Answ\":\"Hello!\""); //Dodanie dlugosci wymaganego poczatku
+	
+	responseLen+= strlen(",\"");									//WiFi SSID
+	responseLen+= strlen(SERVER_VAR_WIFI_SSID);
+	responseLen+=	strlen("\":\"");
+	responseLen+= strlen(sysCfg->WiFi_ssid);
+	responseLen+= strlen("\"");
+	
+	responseLen+= strlen(",\"");									//WiFi Pass
+	responseLen+= strlen(SERVER_VAR_WIFI_PASS);
+	responseLen+=	strlen("\":\"");
+	responseLen+= strlen(sysCfg->WiFi_pass);
+	responseLen+= strlen("\"");
+	
+	responseLen+= strlen(",\"");									//Plants Cnt
+	responseLen+= strlen(SERVER_VAR_PLANTS_CNT);
+	responseLen+=	strlen("\":");
+	responseLen+= strlen(sysCfg->plantsCnt);
+	
+	for(i=0; i<sysCfg->plantsCnt; i++)
+	{
+		
+	}
+	
+	responseLen+= strlen("}")+1;									//Zakonczenie i NULL
+}
 
 /**
 *	@brief Used to start Plant System
 *	@return Initialization result. OK or ERROR
 */
-uint8_t StartSys(SystemConfig_dt *sysCfg)
+uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
+	char *apResponse;
 	CoreInit();
 	SYS_LED_OFF;
 	FUN_LED_OFF;
@@ -193,11 +267,13 @@ uint8_t StartSys(SystemConfig_dt *sysCfg)
 	EngineInit();
 	SoilHygrometerInsolationInit();
 	DHT11Init();
-	MemoryInit(sysCfg);
+	MemoryInit(sysCfg, plants);
 	FUN_LED_OFF;
 	
-	if(WIFIMODE_BUTTON_STATE | sysCfg->mode==SYS_MODE_FIRSTRUN)
+	if(WIFIMODE_BUTTON_STATE || sysCfg->mode==SYS_MODE_FIRSTRUN)
 	{
+		
+		
 		WiFiInit(WIFI_MODE_AP);
 		Server_StartRxListener("{\"Answ\": \"Hello!\"}");
 		sysCfg->mode=SYS_MODE_CONFIG;
@@ -312,6 +388,9 @@ uint8_t getDHTData(uint8_t *temp, uint8_t *RH)
 void setEngineRPM(uint16_t rpm)
 {
 	TIM2->CCR4= rpm;
+}
+
+void MainLoop_NormalStep(SystemConfig_dt *sysCfg, Plant_dt *plants){
 }
 
 #endif

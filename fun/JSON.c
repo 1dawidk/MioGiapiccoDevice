@@ -25,6 +25,34 @@ JSONObj JSON_getFirstJObj(char *str)
 	return jObj;
 }
 
+char* JSON_getJValue(char *name, char *JSONStr)
+{
+	char *start= strstr(JSONStr, name);
+	char *stop= strstr(start, ",");
+	char *value;
+	uint8_t len;
+	
+	if(start)
+	{
+		if(stop)
+		{
+			len= stop-start-2-strlen(name);
+		}
+		else
+		{
+			len= strlen(JSONStr)-(start-JSONStr)-5-strlen(name);
+		}
+		
+		value= malloc(sizeof(char)*len+1);
+		strncpy(value, start+strlen(name)+3, len);
+		value[len]='\0';
+		
+		return value;
+	}
+	
+	return 0;
+}
+
 /* Konwersja JSON <-> String */
 JSON JSON_FromString(char *stringFormat)
 {

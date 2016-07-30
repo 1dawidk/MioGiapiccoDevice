@@ -28,6 +28,7 @@ typedef struct {
 
 
 /* Konwersja JSON <-> String */
+char* JSON_getJValue(char *name, char *JSONStr);
 JSON JSON_FromString(char *stringFormat);
 char* JSON_ToString(JSON *json);
 
