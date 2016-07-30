@@ -216,9 +216,10 @@ uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg
 	return register_errorCode;
 }
 
-char *BuildAPResponse(SystemConfig_dt *sysCfg)
+char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
 	char *response;
+	char *plantNameTag;
 	uint16_t responseLen=0;
 	uint8_t i;
 	
@@ -239,14 +240,35 @@ char *BuildAPResponse(SystemConfig_dt *sysCfg)
 	responseLen+= strlen(",\"");									//Plants Cnt
 	responseLen+= strlen(SERVER_VAR_PLANTS_CNT);
 	responseLen+=	strlen("\":");
-	responseLen+= strlen(sysCfg->plantsCnt);
+	responseLen+= 1;
 	
 	for(i=0; i<sysCfg->plantsCnt; i++)
 	{
-		
+		responseLen+= strlen(",\"");									//Plant Name
+		responseLen+= strlen(SERVER_VAR_PLANT_NAME_BASE)+1;
+		responseLen+=	strlen("\":\"");
+		responseLen+= strlen(plants[i].name);
+		responseLen+= strlen("\"");
 	}
 	
 	responseLen+= strlen("}")+1;									//Zakonczenie i NULL
+	
+	response= malloc(sizeof(char)*responseLen);
+	
+	//Utworzenie odpowiedzi AP
+	sprintf(response, "{\"Answ\":\"Hello!\",\"wifiSSID\":\"%s\",\"wifiPass\":\"%s\",\"PlantsCnt\":%d", sysCfg->WiFi_ssid, sysCfg->WiFi_pass, sysCfg->plantsCnt);
+	
+	for(i=0; i<sysCfg->plantsCnt; i++)
+	{
+		sprintf(plantNameTag,"Plant%d", i);
+		strcat(response, ",\"");
+		strcat(response, plantNameTag);
+		strcat(response, "\":\"");
+		strcat(response, plants[i].name);
+		strcat(response, "\"");
+	}
+	
+	strcat(response, "}");
 }
 
 /**
@@ -270,12 +292,12 @@ uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	MemoryInit(sysCfg, plants);
 	FUN_LED_OFF;
 	
+	sysCfg->mode=SYS_MODE_FIRSTRUN;
+	
 	if(WIFIMODE_BUTTON_STATE || sysCfg->mode==SYS_MODE_FIRSTRUN)
-	{
-		
-		
+	{		
 		WiFiInit(WIFI_MODE_AP);
-		Server_StartRxListener("{\"Answ\": \"Hello!\"}");
+		Server_StartRxListener(BuildAPResponse(sysCfg, plants));
 		sysCfg->mode=SYS_MODE_CONFIG;
 	}
 	else
