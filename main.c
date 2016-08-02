@@ -102,6 +102,7 @@ int main(void)
 			{
 				if(!measure.talking && WiFi_IsWiFiConnected()!=WIFI_CONNECTED)
 				{
+					WiFi_Wakeup();
 					WIFI_LED_OFF;
 					WiFi_StartWiFiConnecting(sysCfg.WiFi_ssid, sysCfg.WiFi_pass);
 				}
@@ -210,6 +211,8 @@ int main(void)
 			if(!RegisterToServer(httpReqParams, &sysCfg, plant))
 			{
 				configRegister=1;
+				WiFi_Sleep();
+				WIFI_LED_OFF;
 			}
 			FUN_LED_OFF;
 		}
@@ -262,6 +265,8 @@ int main(void)
 				
 				
 				EEWrite_Byte(EE_ADR_FIRSTRUN, FALSE);
+				
+				Server_StartRxListener(BuildAPResponse(&sysCfg, plant));
 			}
 			
 			if((CLOCK-measure.lastTime)>0)

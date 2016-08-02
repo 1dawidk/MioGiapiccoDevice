@@ -121,6 +121,13 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	if(readResult)
 	{		
 		sysCfg->mode= SYS_MODE_FIRSTRUN;
+		
+		sysCfg->WiFi_ssid="";
+		sysCfg->WiFi_pass="";
+		sysCfg->user_login="";
+		sysCfg->user_pass="";
+		
+		sysCfg->plantsCnt=0;
 	}
 	else
 	{

@@ -18,6 +18,7 @@
 #include "fun/JSON.h"
 
 uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg, Plant_dt *plants);
+char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants);
 uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants);
 void DHT11Init(void);
 

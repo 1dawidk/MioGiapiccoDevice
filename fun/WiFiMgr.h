@@ -9,6 +9,10 @@
 
 uint8_t WiFi_InitApMode(char *SSID, char *pass, uint8_t enMode);
 uint8_t WiFi_InitClientMode(void);
+
+uint8_t WiFi_Sleep(void);
+uint8_t WiFi_Wakeup(void);
+
 uint8_t WiFi_StartWiFiConnecting(char *SSID, char *pass);
 uint8_t WiFi_IsWiFiConnected(void);
 
