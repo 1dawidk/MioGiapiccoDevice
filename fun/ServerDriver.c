@@ -84,6 +84,9 @@ void Server_StartRxListener(char *newServerResp)
 {
 	UART1_flushRx();
 	serverResp= newServerResp;
+	
+	client.open=FALSE;
+	client.handled=FALSE;
 }
 
 char* Server_RxListen(void)
@@ -105,7 +108,7 @@ char* Server_RxListen(void)
 	{
 		if(strstr((const char*)_UART1_RxLine, "\r\n\r\nMethod"))
 		{
-			_delay_ms(10);
+			_delay_ms(20);
 			client.postVars=Server_GetPOSTVars((const char*)_UART1_RxLine);
 			client.open=FALSE;
 			UART1_flushRx();
@@ -134,7 +137,10 @@ char* Server_RxListen(void)
 			client.handled=TRUE;
 			
 			if(client.configString)
+			{
+				UART1_putStr(client.postVars);
 				return client.postVars;
+			}
 			
 			free(client.postVars);
 	}

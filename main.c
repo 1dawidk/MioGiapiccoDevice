@@ -31,7 +31,6 @@ int main(void)
 	char *postPlantName;
 	uint32_t tmpInt;
 	uint8_t i;
-	JSON serverJSONResp;
 	
 	//System init	
 	StartSys(&sysCfg, plant);
@@ -224,28 +223,28 @@ int main(void)
 			{
 				tmpStr= Server_getPOSTVar("wifiSSID", configStr);
 				EEWrite_String(EE_ADR_SSID, tmpStr);
-				_delay_ms(20);
+				_delay_ms(200);
 				free(tmpStr);				
 				
 				tmpStr= Server_getPOSTVar("wifiPass", configStr);
 				EEWrite_String(EE_ADR_PASS, tmpStr);
-				_delay_ms(20);
+				_delay_ms(200);
 				free(tmpStr);
 				
 				tmpStr= Server_getPOSTVar("userLogin", configStr);
 				EEWrite_String(EE_ADR_USER_LOGIN, tmpStr);
-				_delay_ms(20);
+				_delay_ms(200);
 				free(tmpStr);
 				
 				tmpStr= Server_getPOSTVar("userPass", configStr);
 				EEWrite_String(EE_ADR_USER_PASS, tmpStr);
-				_delay_ms(20);
+				_delay_ms(200);
 				free(tmpStr);
 				
 				tmpStr= Server_getPOSTVar("PlantsCnt", configStr);
 				sscanf(tmpStr, "%d", &tmpInt);
 				EEWrite_Byte(EE_ADR_PLANTSCNT, tmpInt);
-				_delay_ms(20);
+				_delay_ms(200);
 				free(tmpStr);
 				
 				postPlantName= malloc(sizeof(char)*8);
@@ -255,7 +254,7 @@ int main(void)
 					sprintf(postPlantName, "Plant%d", i);
 					tmpStr= Server_getPOSTVar(postPlantName, configStr);
 					EEWrite_String(EE_ADR_PLANTNAME_BASE+i, tmpStr);
-					_delay_ms(20);
+					_delay_ms(200);
 					free(tmpStr);
 				}
 				

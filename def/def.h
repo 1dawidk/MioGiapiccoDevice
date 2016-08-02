@@ -7,8 +7,6 @@
 #define STM32F103RB
 #define F_CPU											72000000UL
 #define __NAME__            			"stm32f103Cb"
-
-#define NULL 											(uint8_t *)0
 //*******************************************
 
 //############################## PLANT SYSTEM
@@ -33,6 +31,11 @@
 #define SERVER_VAR_WIFI_PASS					"wifiPass"
 #define SERVER_VAR_PLANTS_CNT					"PlantsCnt"
 #define SERVER_VAR_PLANT_NAME_BASE		"Plant"
+
+//!!!!!!!!!!!! ### FACTORY RESET 1=ON, 0=OFF ### !!!!!!!!!!!!
+
+#define FACTORY_BOOT									0
+
 //*******************************************
 
 //##################################### LEDS

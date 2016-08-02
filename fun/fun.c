@@ -104,35 +104,46 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
 	uint8_t i;
 	uint8_t readResult;
+	uint32_t j;
 	
 	EEInit(0xa0);
 	
-	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
+	DMAforUART1_RX_config((unsigned long int)&(_UART1_RxLine[0]), UART1_RX_LINE_SIZE);
+  UART1_init(115200);
 	
+	if(FACTORY_BOOT)
+	{
+		EEClear();
+	}
+	
+	
+	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
 	if(readResult)
 	{		
 		sysCfg->mode= SYS_MODE_FIRSTRUN;
 	}
 	else
 	{
-		
-		_delay_ms(5);
 		sysCfg->WiFi_ssid= EERead_String(EE_ADR_SSID);
-		_delay_ms(5);
 		sysCfg->WiFi_pass= EERead_String(EE_ADR_PASS);
-		_delay_ms(5);
-		sysCfg->user_login= EERead_String(EE_ADR_USER_LOGIN);
-		_delay_ms(5);
-		sysCfg->user_pass= EERead_String(EE_ADR_USER_PASS);
-		_delay_ms(5);
 		
+		sysCfg->user_login= EERead_String(EE_ADR_USER_LOGIN);
+		sysCfg->user_pass= EERead_String(EE_ADR_USER_PASS);
 		sysCfg->plantsCnt= EERead_Byte(EE_ADR_PLANTSCNT);
 		
-		for(i=0; i<sysCfg->plantsCnt; i++)
+		for(i=0; i<(sysCfg->plantsCnt); i++)
 		{
-			_delay_ms(10);
-			plants->name= EERead_String(EE_ADR_PLANTNAME_BASE+i);
+			(&(plants[i]))->name= EERead_String(EE_ADR_PLANTNAME_BASE+i);
 		}
+		
+		sysCfg->WiFi_ssid="dlink";
+		sysCfg->WiFi_pass="sikakama1";
+		sysCfg->user_login="1dawidk";
+		sysCfg->user_pass="sikakama1";
+		
+		sysCfg->plantsCnt=2;
+		(plants)->name="Poziomka";
+		(plants+1)->name="Lawenda";
 	}
 }
 
@@ -269,6 +280,8 @@ char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	}
 	
 	strcat(response, "}");
+	
+	return response;
 }
 
 /**
@@ -277,8 +290,6 @@ char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants)
 */
 uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
-	char *apResponse;
-	CoreInit();
 	SYS_LED_OFF;
 	FUN_LED_OFF;
 	ERROR_LED_OFF;
@@ -292,15 +303,13 @@ uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	MemoryInit(sysCfg, plants);
 	FUN_LED_OFF;
 	
-	sysCfg->mode=SYS_MODE_FIRSTRUN;
-	
 	if(WIFIMODE_BUTTON_STATE || sysCfg->mode==SYS_MODE_FIRSTRUN)
 	{		
 		WiFiInit(WIFI_MODE_AP);
 		Server_StartRxListener(BuildAPResponse(sysCfg, plants));
 		sysCfg->mode=SYS_MODE_CONFIG;
 	}
-	else
+	else 
 	{
 		WiFiInit(WIFI_MODE_CLIENT);
 		sysCfg->mode=SYS_MODE_NORMAL;
