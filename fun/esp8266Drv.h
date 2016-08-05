@@ -49,30 +49,14 @@
 #define ESP8266_RESPONSE_UNKNOWN		2
 #define ESP8266_RESPONSE_BUSY				3
 
-/**
-* @brief 			Send command to ESP8266
-*	@param cmd	Command string (selected from predefined commands)
-*/
 void esp8266_sendCmd(char *cmd);
-
-/**
-* @brief 			Send command with data to ESP8266
-*	@param cmd	Command string (selected from predefined commands)
-* @param data	Data at to be sent with command
-*/
 void esp8266_sendData(char *cmd, char *data);
-
 void esp8266_sendAsk(char *cmd);
 
-uint8_t esp8266_checkResponse(void);
+uint8_t esp8266_checkResponse(uint16_t strStart);
 
-/**
-*	@brief					Wait for read prompt
-* @param 	timeout	Wait for timeout seconds for response
-*	@return					
-*/
-uint8_t esp8266_waitForPrompt(uint8_t timeout);
-uint8_t esp8266_waitForResp(uint8_t timeout);
-uint8_t esp8266_waitForSpecResp(char *resp, uint8_t timeout);
+uint8_t esp8266_waitForPrompt(uint8_t timeout, uint16_t strStart);
+uint8_t esp8266_waitForResp(uint8_t timeout, uint16_t strStart);
+uint8_t esp8266_waitForSpecResp(char *resp, uint8_t timeout, uint16_t strStart);
 
 #endif

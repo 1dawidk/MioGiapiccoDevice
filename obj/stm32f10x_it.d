@@ -24,4 +24,7 @@
 .\obj\stm32f10x_it.o: ..\MioGiapicco\def\pin_descr.h
 .\obj\stm32f10x_it.o: ..\..\libs\BusDrv\UART\UartDrv.h
 .\obj\stm32f10x_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\stm32f10x_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\stm32f10x_it.o: ..\..\libs\HighDrv\EaseOfAccess.h
+.\obj\stm32f10x_it.o: ..\..\libs\BusDrv\DMADrv.h
+.\obj\stm32f10x_it.o: ..\MioGiapicco\GlobalVar.h

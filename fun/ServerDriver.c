@@ -11,17 +11,20 @@ Client_dt client;
 #define SERVER_REQ_HEAD 				" HTTP/1.1"
 
 extern volatile uint32_t seconds;
+static uint16_t rxListener_readStart=0;
 
 uint8_t Server_SendData(uint8_t connId, char *data)
 {
 	char dataPreStr[10];
 	char timeStr[10];
+	uint32_t readStart;
 	
 	sprintf(timeStr, "%d", seconds);
 	sprintf(dataPreStr, "%d,%d", connId, strlen(data)+strlen(SERVER_HEADER_OK));
 	
+	readStart=UART1_RxCurrent;
 	esp8266_sendData(ESP8266_CMD_SEND, dataPreStr);
-	if(esp8266_waitForPrompt(1)!=ESP8266_RESPONSE_OK)
+	if(esp8266_waitForPrompt(1, readStart)!=ESP8266_RESPONSE_OK)
 		return SERVER_RESPONSE_ERROR;
 	UART1_putStr(SERVER_HEADER_OK);
 	UART1_putStr(data);
@@ -82,11 +85,12 @@ char* Server_getPOSTVar(char *varName, char* varsString)
 
 void Server_StartRxListener(char *newServerResp)
 {
-	UART1_flushRx();
 	serverResp= newServerResp;
 	
 	client.open=FALSE;
 	client.handled=FALSE;
+	
+	 rxListener_readStart=UART1_RxCurrent;
 }
 
 char* Server_RxListen(void)
@@ -97,21 +101,21 @@ char* Server_RxListen(void)
 	
 	client.configString=0;
 	
-	if(strstr((const char*)_UART1_RxLine, "+IPD"))
+	if(strstr((const char*)UART1_getRxData(rxListener_readStart), "+IPD"))
 	{
-		sscanf((const char*)_UART1_RxLine, "+IPD,%d,", &client.id);
+		sscanf((const char*)UART1_getRxData(rxListener_readStart), "+IPD,%hhu,", &client.id);
 		client.handled=FALSE;
-		client.open=TRUE;
+		client.open=TRUE;	
 	}
 	
 	if(client.open)
 	{
-		if(strstr((const char*)_UART1_RxLine, "\r\n\r\nMethod"))
+		if(strstr((const char*)UART1_getRxData(rxListener_readStart), "\r\n\r\nMethod"))
 		{
 			_delay_ms(20);
-			client.postVars=Server_GetPOSTVars((const char*)_UART1_RxLine);
+			client.postVars=Server_GetPOSTVars((const char*)UART1_getRxData(rxListener_readStart));
 			client.open=FALSE;
-			UART1_flushRx();
+			rxListener_readStart=UART1_RxCurrent;
 		}
 	}
 	else if(!client.handled)
@@ -151,11 +155,12 @@ char* Server_RxListen(void)
 uint8_t Server_ConnectTo(char *URL)
 {
 	char cipStartData[30];
+	uint16_t readStart;
 	
 	sprintf(cipStartData,"\"TCP\",\"%s\",80", URL);
-	
+	readStart= UART1_RxCurrent+2;
 	esp8266_sendData(ESP8266_CMD_CIPSTART, cipStartData);
-	esp8266_waitForResp(2);
+	esp8266_waitForResp(4, readStart);
 	
 	return 0;
 }
@@ -229,6 +234,8 @@ void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uin
 	char sendLenText[5];
 	char dataLenText[5];
 	uint8_t cnt;
+	uint16_t readStart;
+	
 	
 	/*Zliczenie dlugosci danych*/
 	for(cnt=0; cnt<varLen; cnt++)
@@ -265,8 +272,9 @@ void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uin
 	
 	
 	sprintf(sendLenText, "%d", requestLen+dataLen);
+	readStart= UART1_RxCurrent;
 	esp8266_sendData(ESP8266_CMD_SEND, sendLenText);
-	esp8266_waitForPrompt(2);
+	esp8266_waitForPrompt(2, readStart);
 	
 	/*Wyslanie http request*/
 	if(httpMethod==POST)
@@ -292,10 +300,8 @@ void Server_Request(HttpMethod httpMethod, char *path, HttpVar_dt *httpVars, uin
 
 uint8_t Server_checkForResponse(char *responseBuff)
 {
-	char *dataP;
-	
-	char* httpStart=strstr((const char*)_UART1_RxLine, "HTTP/1.1");
-	char* httpEnd=strstr((const char*)_UART1_RxLine, "CLOSED");
+	char* httpStart=strstr(responseBuff, "200 OK");
+	char* httpEnd=strstr(responseBuff, "CLOSED");
 	
 	if(httpStart && httpEnd && httpEnd>httpStart)
 	{

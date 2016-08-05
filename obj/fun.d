@@ -29,9 +29,9 @@
 .\obj\fun.o: ..\MioGiapicco\def/typesdef.h
 .\obj\fun.o: ..\..\libs\BusDrv\UART/UartDrv.h
 .\obj\fun.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\fun.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\fun.o: ..\..\libs\HighDrv\EaseOfAccess.h
 .\obj\fun.o: fun\esp8266Drv.h
-.\obj\fun.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\fun.o: fun\ServerDriver.h
 .\obj\fun.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\fun.o: fun\WiFiMgr.h

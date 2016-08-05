@@ -92,7 +92,7 @@ void EEWrite_String(uint16_t adr, char* str)
 			for(i=0; i<len; i++)
 			{
 				_delay_ms(20);
-				I2C2_write16_buf(sla, adr+1+i, 1, &(str[i]));
+				I2C2_write16_buf(sla, adr+1+i, 1, (uint8_t *)&(str[i]));
 			}
 			
 			EE_Repoint();

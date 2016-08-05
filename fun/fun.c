@@ -41,17 +41,18 @@ void WiFiInit(uint8_t mode)
 	uint32_t startClk;
 	
 	FUN_LED_ON;
-	DMAforUART1_RX_config((unsigned long int)&(_UART1_RxLine[0]), UART1_RX_LINE_SIZE);
   UART1_init(115200);
 	FUN_LED_OFF;
 	
 	WIFI_RST_H;
+	WIFI_POWER_OFF;
+	_delay_ms(20);
 	WIFI_POWER_ON;
 	WIFI_GPIO0_H;
 	WIFI_GPIO2_H;
 	
 	startClk=CLOCK;
-	while(!strstr((const char*)_UART1_RxLine, "ready") && CLOCK-startClk<10);
+	while(!strstr((const char*)UART1_getRxData(0), "ready") && CLOCK-startClk<10);
 	
 	WIFI_LED_ON;
 	FUN_LED_ON;
@@ -104,12 +105,8 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
 	uint8_t i;
 	uint8_t readResult;
-	uint32_t j;
 	
 	EEInit(0xa0);
-	
-	DMAforUART1_RX_config((unsigned long int)&(_UART1_RxLine[0]), UART1_RX_LINE_SIZE);
-  UART1_init(115200);
 	
 	if(FACTORY_BOOT)
 	{
@@ -165,6 +162,7 @@ uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg
 	uint8_t state=REGISTER_STATE_START;
 	uint8_t register_errorCode=0;
 	uint8_t i;
+	uint16_t readStart;
 	char deviceIdStr[5];
 	char plantsCntStr[2];
 	char plantNameStr[8];
@@ -202,15 +200,15 @@ uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg
 		{
 			case REGISTER_STATE_START:
 				Server_ConnectTo("www.dawidkulpa.pl");
-				UART1_flushRx();
+				readStart=UART1_RxCurrent;
 				Server_Request(POST, SERVER_CFG_PATH, httpVars, 4+sysCfg->plantsCnt, httpReqParams, 4);
 				state=REGISTER_STATE_TALKING;
 				break;
 			case REGISTER_STATE_TALKING:
-				server_responseCode= Server_checkForResponse((char *)_UART1_RxLine);
+				server_responseCode= Server_checkForResponse(UART1_getRxData(readStart));
 				if(server_responseCode!=0)
 				{
-					server_responseStr=Server_GetBody(_UART1_RxLine);
+					server_responseStr=Server_GetBody(UART1_getRxData(readStart));
 					
 					for(i=0; i<sysCfg->plantsCnt; i++)
 					{
@@ -326,13 +324,13 @@ uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	return 0;
 }
 
-uint8_t getSoilMoisture(void)
+uint8_t getSoilMoisture(uint8_t input_nr)
 {
 	uint8_t soilMoistureData;
 	
 	SOILMOISTURE_DEVICE_ON;
 	_delay_ms(100);
-	soilMoistureData=(adcData[0]*100)/MAX_SOILMOISTURE;
+	soilMoistureData=(adcData[input_nr]*100)/MAX_SOILMOISTURE;
 	_delay_ms(20);
 	SOILMOISTURE_DEVICE_OFF;
 	

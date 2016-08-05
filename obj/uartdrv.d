@@ -19,6 +19,9 @@
 .\obj\uartdrv.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\obj\uartdrv.o: ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\obj\uartdrv.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\uartdrv.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\uartdrv.o: ..\..\libs\HighDrv\EaseOfAccess.h
 .\obj\uartdrv.o: ..\MioGiapicco\def\def.h
 .\obj\uartdrv.o: ..\..\libs\HighDrv\high_GPIODrv.h
+.\obj\uartdrv.o: ..\..\libs\BusDrv\DMADrv.h
+.\obj\uartdrv.o: ..\MioGiapicco\GlobalVar.h

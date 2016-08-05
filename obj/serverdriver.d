@@ -22,9 +22,11 @@
 .\obj\serverdriver.o: fun\../def/pin_descr.h
 .\obj\serverdriver.o: ..\..\libs\BusDrv\UART/UartDrv.h
 .\obj\serverdriver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\serverdriver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\serverdriver.o: ..\..\libs\HighDrv\EaseOfAccess.h
 .\obj\serverdriver.o: ..\MioGiapicco\def\def.h
 .\obj\serverdriver.o: ..\..\libs\HighDrv\high_GPIODrv.h
-.\obj\serverdriver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\serverdriver.o: ..\..\libs\BusDrv\DMADrv.h
+.\obj\serverdriver.o: ..\MioGiapicco\GlobalVar.h
 .\obj\serverdriver.o: fun\coreinit.h
 .\obj\serverdriver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

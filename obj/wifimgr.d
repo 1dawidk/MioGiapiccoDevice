@@ -22,8 +22,10 @@
 .\obj\wifimgr.o: fun\../def/pin_descr.h
 .\obj\wifimgr.o: ..\..\libs\BusDrv\UART/UartDrv.h
 .\obj\wifimgr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\wifimgr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\wifimgr.o: ..\..\libs\HighDrv\EaseOfAccess.h
 .\obj\wifimgr.o: ..\MioGiapicco\def\def.h
 .\obj\wifimgr.o: ..\..\libs\HighDrv\high_GPIODrv.h
-.\obj\wifimgr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\wifimgr.o: ..\..\libs\BusDrv\DMADrv.h
+.\obj\wifimgr.o: ..\MioGiapicco\GlobalVar.h
 .\obj\wifimgr.o: fun\coreinit.h

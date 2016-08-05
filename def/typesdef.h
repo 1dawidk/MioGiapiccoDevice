@@ -31,6 +31,7 @@ typedef struct{
 	uint32_t lastTime;
 	uint32_t talkStart;
 	uint8_t talking;
+	uint8_t sendCnt;
 	uint8_t dataPrepared;
 	uint8_t broken;
 } Measure;

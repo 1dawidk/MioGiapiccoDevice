@@ -22,7 +22,7 @@ char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants);
 uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants);
 void DHT11Init(void);
 
-uint8_t getSoilMoisture(void);
+uint8_t getSoilMoisture(uint8_t input_nr);
 uint8_t getDHTData(uint8_t *temp, uint8_t *RH);
 uint8_t getInsolation(void);
 

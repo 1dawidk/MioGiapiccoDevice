@@ -30,9 +30,9 @@
 .\obj\main.o: ..\..\libs\HighDrv\TimerHighDrv.h
 .\obj\main.o: ..\MioGiapicco\def/typesdef.h
 .\obj\main.o: ..\..\libs\BusDrv\UART/UartDrv.h
+.\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\main.o: ..\..\libs\HighDrv\EaseOfAccess.h
 .\obj\main.o: fun/esp8266Drv.h
-.\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\main.o: fun/ServerDriver.h
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\main.o: fun/WiFiMgr.h

@@ -11,6 +11,7 @@ int main(void)
 	Plant_dt plant[4];
 	
 	uint32_t talkStartClk;
+	uint16_t readStart;
 	
 	//Int to text buff
 	char soilMoistureText[5]="";
@@ -100,9 +101,13 @@ int main(void)
 			
 			if((CLOCK-measure.lastTime)>MEASUREMENT_SEP)
 			{
-				if(!measure.talking && WiFi_IsWiFiConnected()!=WIFI_CONNECTED)
+				if(WiFi_IsAsleep()==TRUE)
 				{
 					WiFi_Wakeup();
+				}
+				
+				if(!measure.talking && WiFi_IsWiFiConnected()!=WIFI_CONNECTED)
+				{
 					WIFI_LED_OFF;
 					WiFi_StartWiFiConnecting(sysCfg.WiFi_ssid, sysCfg.WiFi_pass);
 				}
@@ -114,43 +119,41 @@ int main(void)
 					{
 						if(measure.talking==1)
 						{
-							strcpy((char *)rxLocker, (char *)_UART1_RxLine);
-							server_responseCode= Server_checkForResponse((char *)rxLocker);
+							_delay_ms(10);
+							server_responseCode= Server_checkForResponse(UART1_getRxData(readStart));
 							//If server resp clear data prepared and talking
-							if(server_responseCode==1)
+							if(server_responseCode==1 || CLOCK-talkStartClk>30)
 							{
+								
+								if(CLOCK-talkStartClk>30)
+								{
+										UART1_putStr(" #Time s Up!# ");	
+								}
+								
+								if(measure.sendCnt<sysCfg.plantsCnt-1)
+								{
+									measure.sendCnt++;
+								}
+								else
+								{
+									measure.dataPrepared=0;
+									WiFi_Sleep();
+									WIFI_LED_OFF;
+									measure.lastTime=CLOCK;
+									//serverJSONResp= JSON_FromString((char *)rxLocker);
+								}
+								
 								measure.talking=0;
-								measure.dataPrepared=0;
-								//Set update clock
-								measure.lastTime=CLOCK;
-								//serverJSONResp= JSON_FromString((char *)rxLocker);
-							}
-							else if(server_responseCode==2)
-							{
-								_delay_ms(1000);
-								_delay_ms(1000);
-								measure.talking=0;
-								measure.dataPrepared=0;
-							}
-							else if(server_responseCode==3)
-							{
-								measure.talking=0;
-								measure.dataPrepared=0;
-								//Set update clock
-								measure.lastTime=CLOCK;
-							}
-							
-							if(CLOCK-talkStartClk>30)
-							{
-								measure.talking=0;
-								measure.dataPrepared=0;
 							}
 						}
 						else
 						{
-							sprintf(idText, "%d", plant[0].id);
+							sprintf(idText, "%d", plant[measure.sendCnt].id);
+							sprintf(soilMoistureText, "%d", plant[measure.sendCnt].soil_moisture);
+					
 							Server_ConnectTo("www.dawidkulpa.pl");
 							measure.talking=1;
+							readStart=UART1_RxCurrent;
 							Server_Request(POST, SERVER_SEND_PATH, httpVars, 8, httpReqParams, 4);
 							talkStartClk=CLOCK;
 						}
@@ -160,12 +163,13 @@ int main(void)
 						FUN_LED_ON;
 		
 						//Get and set soil moisture data
-						plant[0].soil_moisture= getSoilMoisture();
-						sprintf(soilMoistureText, "%d", plant[0].soil_moisture);
+						for(i=0; i<sysCfg.plantsCnt; i++)
+						{
+							plant[i].soil_moisture= getSoilMoisture(i);
+						}
 						
 						//Get and set air humidity and temperature data
 						dhtStateCode=getDHTData(&(plant[0].temperature), &(plant[0].air_humidity));
-						
 					
 						if(dhtStateCode)
 						{
@@ -184,16 +188,11 @@ int main(void)
 						//Get insolation
 							sprintf(insolationText, "%d", getInsolation());
 						
-						//Check if watering
-						if(plant[0].soil_moisture<40)
-							httpVars[3].value="1";
-						else
-							httpVars[3].value="0";
-						
 						//Set data prepared
 						if(!measure.broken)
 						{
 							measure.dataPrepared=1;
+							measure.sendCnt=0;
 						}
 						
 						FUN_LED_OFF;

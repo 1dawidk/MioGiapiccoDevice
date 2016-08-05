@@ -21,8 +21,10 @@
 .\obj\esp8266drv.o: fun\../def/pin_descr.h
 .\obj\esp8266drv.o: ..\..\libs\BusDrv\UART/UartDrv.h
 .\obj\esp8266drv.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\esp8266drv.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\esp8266drv.o: ..\..\libs\HighDrv\EaseOfAccess.h
 .\obj\esp8266drv.o: ..\MioGiapicco\def\def.h
 .\obj\esp8266drv.o: ..\..\libs\HighDrv\high_GPIODrv.h
-.\obj\esp8266drv.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\esp8266drv.o: ..\..\libs\BusDrv\DMADrv.h
+.\obj\esp8266drv.o: ..\MioGiapicco\GlobalVar.h
 .\obj\esp8266drv.o: fun\coreinit.h

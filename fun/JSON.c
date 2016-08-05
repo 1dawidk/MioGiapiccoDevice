@@ -61,8 +61,6 @@ JSON JSON_FromString(char *stringFormat)
 	uint16_t cnt;
 	uint16_t i;
 	
-	char tmpName[20], tmpValue[20];
-	
 	i=0;
 	cnt++;
 	while(stringFormat[i])
@@ -80,12 +78,6 @@ JSON JSON_FromString(char *stringFormat)
 		json.list[i]=JSON_getFirstJObj(stringFormat);
 		stringFormat= strstr(stringFormat, ",")+1;
 	}
-}
-
-
-char* JSON_ToString(JSON *json)
-{
-	
 }
 
 /* Czytanie list JSON */
