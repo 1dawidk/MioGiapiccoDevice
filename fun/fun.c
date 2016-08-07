@@ -39,6 +39,7 @@ void WiFiInit(uint8_t mode)
 {
 	uint8_t errorCode;
 	uint32_t startClk;
+	uint16_t readStart;
 	
 	FUN_LED_ON;
   UART1_init(115200);
@@ -46,13 +47,14 @@ void WiFiInit(uint8_t mode)
 	
 	WIFI_RST_H;
 	WIFI_POWER_OFF;
+	readStart=UART1_RxCurrent;
 	_delay_ms(20);
 	WIFI_POWER_ON;
 	WIFI_GPIO0_H;
 	WIFI_GPIO2_H;
 	
 	startClk=CLOCK;
-	while(!strstr((const char*)UART1_getRxData(0), "ready") && CLOCK-startClk<10);
+	while(!strstr((const char*)UART1_getRxData(readStart), "ready") && CLOCK-startClk<10);
 	
 	WIFI_LED_ON;
 	FUN_LED_ON;
@@ -107,13 +109,14 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	uint8_t readResult;
 	
 	EEInit(0xa0);
+	UART1_init(115200);
 	
 	if(FACTORY_BOOT)
 	{
 		EEClear();
 	}
 	
-	
+	EEWrite_Byte(EE_ADR_FIRSTRUN, 0);
 	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
 	if(readResult)
 	{		
@@ -128,26 +131,17 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	}
 	else
 	{
+		sysCfg->plantsCnt= EERead_Byte(EE_ADR_PLANTSCNT);
 		sysCfg->WiFi_ssid= EERead_String(EE_ADR_SSID);
 		sysCfg->WiFi_pass= EERead_String(EE_ADR_PASS);
 		
 		sysCfg->user_login= EERead_String(EE_ADR_USER_LOGIN);
 		sysCfg->user_pass= EERead_String(EE_ADR_USER_PASS);
-		sysCfg->plantsCnt= EERead_Byte(EE_ADR_PLANTSCNT);
-		
+			
 		for(i=0; i<(sysCfg->plantsCnt); i++)
 		{
 			(&(plants[i]))->name= EERead_String(EE_ADR_PLANTNAME_BASE+i);
 		}
-		
-		sysCfg->WiFi_ssid="dlink";
-		sysCfg->WiFi_pass="sikakama1";
-		sysCfg->user_login="1dawidk";
-		sysCfg->user_pass="sikakama1";
-		
-		sysCfg->plantsCnt=2;
-		(plants)->name="Poziomka";
-		(plants+1)->name="Lawenda";
 	}
 }
 
@@ -346,6 +340,11 @@ uint8_t getInsolation(void)
 	_delay_ms(100);
 	insolation= (adcData[5]*100)/MAX_INSOLATION;
 	_delay_ms(20);
+	
+	UART1_putStr(" # Insolation ADC Value: ");
+	UART1_putInt(adcData[5]);
+	UART1_putStr(" # ");
+	
 	SOILMOISTURE_DEVICE_OFF;
 	
 	return insolation;
@@ -424,9 +423,6 @@ uint8_t getDHTData(uint8_t *temp, uint8_t *RH)
 void setEngineRPM(uint16_t rpm)
 {
 	TIM2->CCR4= rpm;
-}
-
-void MainLoop_NormalStep(SystemConfig_dt *sysCfg, Plant_dt *plants){
 }
 
 #endif

@@ -108,7 +108,6 @@ uint8_t WiFi_IsWiFiConnected(void)
 		{
 			return WIFI_DISCONNECTED;
 		}
-		
 		return WIFI_CONNECTED;
 	}
 	else

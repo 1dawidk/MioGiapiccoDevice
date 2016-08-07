@@ -29,6 +29,8 @@ uint8_t Server_SendData(uint8_t connId, char *data)
 	UART1_putStr(SERVER_HEADER_OK);
 	UART1_putStr(data);
 	
+	esp8266_waitForSpecResp("SEND OK", 4, readStart);
+	
 	return SERVER_RESPONSE_OK;
 }
 
@@ -142,7 +144,6 @@ char* Server_RxListen(void)
 			
 			if(client.configString)
 			{
-				UART1_putStr(client.postVars);
 				return client.postVars;
 			}
 			
@@ -158,8 +159,9 @@ uint8_t Server_ConnectTo(char *URL)
 	uint16_t readStart;
 	
 	sprintf(cipStartData,"\"TCP\",\"%s\",80", URL);
-	readStart= UART1_RxCurrent+2;
+	readStart= UART1_RxCurrent;
 	esp8266_sendData(ESP8266_CMD_CIPSTART, cipStartData);
+	esp8266_waitForSpecResp("CONNECT", 4, readStart);
 	esp8266_waitForResp(4, readStart);
 	
 	return 0;

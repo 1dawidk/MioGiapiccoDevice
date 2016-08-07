@@ -1,5 +1,5 @@
 Dependencies for Project 'MioGiapicco', Target 'Target 1': (DO NOT MODIFY !)
-F (.\GlobalVar.c)(0x57544E34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\globalvar.o --omf_browse .\obj\globalvar.crf --depend .\obj\globalvar.d)
+F (.\GlobalVar.c)(0x57544E34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\globalvar.o --omf_browse .\obj\globalvar.crf --depend .\obj\globalvar.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
@@ -17,7 +17,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (.\main.c)(0x57A4801B)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+F (.\main.c)(0x57A67895)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
 I (main.h)(0x5760207A)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -39,7 +39,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
 I (fun/fun.h)(0x57A129E5)
 I (..\..\libs\HighDrv\ADCHighDrv.h)(0x53B7C6E3)
-I (..\MioGiapicco\def/def.h)(0x57A488F5)
+I (..\MioGiapicco\def/def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\MioGiapicco\def/pin_descr.h)(0x57912CF6)
 I (fun/coreInit.h)(0x5785000F)
@@ -50,14 +50,14 @@ I (..\MioGiapicco\def/typesdef.h)(0x57A12B26)
 I (..\..\libs\BusDrv\UART/UartDrv.h)(0x57A43804)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-I (fun/esp8266Drv.h)(0x57A39797)
+I (fun/esp8266Drv.h)(0x57A62D94)
 I (fun/ServerDriver.h)(0x579C8AEB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55DBFE68)
 I (fun/WiFiMgr.h)(0x57A12EC2)
-I (..\..\libs\BusDrv\I2C/I2cDrv.h)(0x578D3707)
-I (..\MioGiapicco\fun/eeprom.h)(0x579FB079)
+I (..\..\libs\BusDrv\I2C/I2cDrv.h)(0x57A4C684)
+I (..\MioGiapicco\fun/eeprom.h)(0x57A675C3)
 I (..\MioGiapicco\fun/JSON.h)(0x579CA162)
-F (.\fun\fun.c)(0x57A43865)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\fun.o --omf_browse .\obj\fun.crf --depend .\obj\fun.d)
+F (.\fun\fun.c)(0x57A67A59)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\fun.o --omf_browse .\obj\fun.crf --depend .\obj\fun.d)
 I (fun\fun.h)(0x57A129E5)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -77,7 +77,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
 I (..\..\libs\HighDrv\ADCHighDrv.h)(0x53B7C6E3)
-I (..\MioGiapicco\def/def.h)(0x57A488F5)
+I (..\MioGiapicco\def/def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\MioGiapicco\def/pin_descr.h)(0x57912CF6)
 I (fun\coreInit.h)(0x5785000F)
@@ -89,15 +89,15 @@ I (..\..\libs\BusDrv\UART/UartDrv.h)(0x57A43804)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-I (fun\esp8266Drv.h)(0x57A39797)
+I (fun\esp8266Drv.h)(0x57A62D94)
 I (fun\ServerDriver.h)(0x579C8AEB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55DBFE68)
 I (fun\WiFiMgr.h)(0x57A12EC2)
-I (..\..\libs\BusDrv\I2C/I2cDrv.h)(0x578D3707)
-I (..\MioGiapicco\fun/eeprom.h)(0x579FB079)
+I (..\..\libs\BusDrv\I2C/I2cDrv.h)(0x57A4C684)
+I (..\MioGiapicco\fun/eeprom.h)(0x57A675C3)
 I (..\MioGiapicco\fun/JSON.h)(0x579CA162)
-F (.\fun\esp8266Drv.c)(0x57A47C9C)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\esp8266drv.o --omf_browse .\obj\esp8266drv.crf --depend .\obj\esp8266drv.d)
-I (fun\esp8266Drv.h)(0x57A39797)
+F (.\fun\esp8266Drv.c)(0x57A62D7F)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\esp8266drv.o --omf_browse .\obj\esp8266drv.crf --depend .\obj\esp8266drv.d)
+I (fun\esp8266Drv.h)(0x57A62D94)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
@@ -120,12 +120,12 @@ I (..\..\libs\BusDrv\UART/UartDrv.h)(0x57A43804)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\..\libs\BusDrv\DMADrv.h)(0x5732F804)
 I (..\MioGiapicco\GlobalVar.h)(0x57A309DE)
 I (fun\coreinit.h)(0x5785000F)
-F (.\fun\ServerDriver.c)(0x57A4853C)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\serverdriver.o --omf_browse .\obj\serverdriver.crf --depend .\obj\serverdriver.d)
+F (.\fun\ServerDriver.c)(0x57A65D47)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\serverdriver.o --omf_browse .\obj\serverdriver.crf --depend .\obj\serverdriver.d)
 I (fun\ServerDriver.h)(0x579C8AEB)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -144,19 +144,19 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-I (fun\esp8266Drv.h)(0x57A39797)
+I (fun\esp8266Drv.h)(0x57A62D94)
 I (fun\../def/pin_descr.h)(0x57912CF6)
 I (..\..\libs\BusDrv\UART/UartDrv.h)(0x57A43804)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\..\libs\BusDrv\DMADrv.h)(0x5732F804)
 I (..\MioGiapicco\GlobalVar.h)(0x57A309DE)
 I (fun\coreinit.h)(0x5785000F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55DBFE68)
-F (.\fun\JSON.c)(0x57A12FF6)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\json.o --omf_browse .\obj\json.crf --depend .\obj\json.d)
+F (.\fun\JSON.c)(0x57A12FF6)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\json.o --omf_browse .\obj\json.crf --depend .\obj\json.d)
 I (fun\JSON.h)(0x579CA162)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -178,7 +178,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55DBFE68)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-F (.\fun\WiFiMgr.c)(0x57A48492)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\wifimgr.o --omf_browse .\obj\wifimgr.crf --depend .\obj\wifimgr.d)
+F (.\fun\WiFiMgr.c)(0x57A646FE)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\wifimgr.o --omf_browse .\obj\wifimgr.crf --depend .\obj\wifimgr.d)
 I (fun\WiFiMgr.h)(0x57A12EC2)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -197,18 +197,18 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-I (fun\esp8266Drv.h)(0x57A39797)
+I (fun\esp8266Drv.h)(0x57A62D94)
 I (fun\../def/pin_descr.h)(0x57912CF6)
 I (..\..\libs\BusDrv\UART/UartDrv.h)(0x57A43804)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\..\libs\BusDrv\DMADrv.h)(0x5732F804)
 I (..\MioGiapicco\GlobalVar.h)(0x57A309DE)
 I (fun\coreinit.h)(0x5785000F)
-F (.\fun\StaticMemoryDrv.c)(0x5760045F)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\staticmemorydrv.o --omf_browse .\obj\staticmemorydrv.crf --depend .\obj\staticmemorydrv.d)
+F (.\fun\StaticMemoryDrv.c)(0x5760045F)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\staticmemorydrv.o --omf_browse .\obj\staticmemorydrv.crf --depend .\obj\staticmemorydrv.d)
 I (fun\StaticMemoryDrv.h)(0x575FFEBC)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -227,8 +227,8 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (.\fun\eeprom.c)(0x57A12F0B)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\eeprom.o --omf_browse .\obj\eeprom.crf --depend .\obj\eeprom.d)
-I (fun\eeprom.h)(0x579FB079)
+F (.\fun\eeprom.c)(0x57A67963)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\eeprom.o --omf_browse .\obj\eeprom.crf --depend .\obj\eeprom.d)
+I (fun\eeprom.h)(0x57A675C3)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
@@ -246,8 +246,8 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-I (..\..\libs\BusDrv\I2c/I2CDrv.h)(0x578D3707)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\..\libs\BusDrv\I2c/I2CDrv.h)(0x57A4C684)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\MioGiapicco\def\typesdef.h)(0x57A12B26)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
@@ -256,7 +256,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (fun\coreInit.h)(0x5785000F)
 I (..\MioGiapicco\def\pin_descr.h)(0x57912CF6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\misc.o --omf_browse .\obj\misc.crf --depend .\obj\misc.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\misc.o --omf_browse .\obj\misc.crf --depend .\obj\misc.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -274,7 +274,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_adc.o --omf_browse .\obj\stm32f10x_adc.crf --depend .\obj\stm32f10x_adc.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_adc.o --omf_browse .\obj\stm32f10x_adc.crf --depend .\obj\stm32f10x_adc.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -292,7 +292,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_bkp.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_bkp.o --omf_browse .\obj\stm32f10x_bkp.crf --depend .\obj\stm32f10x_bkp.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_bkp.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_bkp.o --omf_browse .\obj\stm32f10x_bkp.crf --depend .\obj\stm32f10x_bkp.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -310,7 +310,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_dma.o --omf_browse .\obj\stm32f10x_dma.crf --depend .\obj\stm32f10x_dma.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_dma.o --omf_browse .\obj\stm32f10x_dma.crf --depend .\obj\stm32f10x_dma.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -328,7 +328,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c)(0x576028CA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_flash.o --omf_browse .\obj\stm32f10x_flash.crf --depend .\obj\stm32f10x_flash.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c)(0x576028CA)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_flash.o --omf_browse .\obj\stm32f10x_flash.crf --depend .\obj\stm32f10x_flash.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -346,7 +346,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c)(0x4D7A5F46)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_gpio.o --omf_browse .\obj\stm32f10x_gpio.crf --depend .\obj\stm32f10x_gpio.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c)(0x4D7A5F46)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_gpio.o --omf_browse .\obj\stm32f10x_gpio.crf --depend .\obj\stm32f10x_gpio.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -364,7 +364,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_pwr.o --omf_browse .\obj\stm32f10x_pwr.crf --depend .\obj\stm32f10x_pwr.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_pwr.o --omf_browse .\obj\stm32f10x_pwr.crf --depend .\obj\stm32f10x_pwr.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -382,7 +382,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rtc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_rtc.o --omf_browse .\obj\stm32f10x_rtc.crf --depend .\obj\stm32f10x_rtc.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rtc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_rtc.o --omf_browse .\obj\stm32f10x_rtc.crf --depend .\obj\stm32f10x_rtc.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -400,7 +400,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_rcc.o --omf_browse .\obj\stm32f10x_rcc.crf --depend .\obj\stm32f10x_rcc.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_rcc.o --omf_browse .\obj\stm32f10x_rcc.crf --depend .\obj\stm32f10x_rcc.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -418,7 +418,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_usart.o --omf_browse .\obj\stm32f10x_usart.crf --depend .\obj\stm32f10x_usart.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_usart.o --omf_browse .\obj\stm32f10x_usart.crf --depend .\obj\stm32f10x_usart.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -436,7 +436,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_tim.o --omf_browse .\obj\stm32f10x_tim.crf --depend .\obj\stm32f10x_tim.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_tim.o --omf_browse .\obj\stm32f10x_tim.crf --depend .\obj\stm32f10x_tim.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -454,7 +454,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_i2c.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_i2c.o --omf_browse .\obj\stm32f10x_i2c.crf --depend .\obj\stm32f10x_i2c.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_i2c.c)(0x4D78AC34)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_i2c.o --omf_browse .\obj\stm32f10x_i2c.crf --depend .\obj\stm32f10x_i2c.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -472,7 +472,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\HighDrv\ADCHighDrv.c)(0x578D0526)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\adchighdrv.o --omf_browse .\obj\adchighdrv.crf --depend .\obj\adchighdrv.d)
+F (..\..\libs\HighDrv\ADCHighDrv.c)(0x578D0526)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\adchighdrv.o --omf_browse .\obj\adchighdrv.crf --depend .\obj\adchighdrv.d)
 I (..\..\libs\HighDrv\ADCHighDrv.h)(0x53B7C6E3)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -491,7 +491,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\BusDrv\DMADrv.c)(0x57292778)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\dmadrv.o --omf_browse .\obj\dmadrv.crf --depend .\obj\dmadrv.d)
+F (..\..\libs\BusDrv\DMADrv.c)(0x57292778)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\dmadrv.o --omf_browse .\obj\dmadrv.crf --depend .\obj\dmadrv.d)
 I (..\..\libs\BusDrv\DMADrv.h)(0x5732F804)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -511,9 +511,9 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
 I (..\MioGiapicco\GlobalVar.h)(0x57A309DE)
-I (..\MioGiapicco\def/def.h)(0x57A488F5)
+I (..\MioGiapicco\def/def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
-F (..\..\libs\HighDrv\TimerHighDrv.c)(0x572C6D5B)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\timerhighdrv.o --omf_browse .\obj\timerhighdrv.crf --depend .\obj\timerhighdrv.d)
+F (..\..\libs\HighDrv\TimerHighDrv.c)(0x572C6D5B)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\timerhighdrv.o --omf_browse .\obj\timerhighdrv.crf --depend .\obj\timerhighdrv.d)
 I (..\..\libs\HighDrv\TimerHighDrv.h)(0x548E312D)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -532,7 +532,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-F (..\..\libs\BusDrv\UART\UartDrv.c)(0x57A48347)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\uartdrv.o --omf_browse .\obj\uartdrv.crf --depend .\obj\uartdrv.d)
+F (..\..\libs\BusDrv\UART\UartDrv.c)(0x57A64565)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\uartdrv.o --omf_browse .\obj\uartdrv.crf --depend .\obj\uartdrv.d)
 I (..\..\libs\BusDrv\UART\UartDrv.h)(0x57A43804)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -554,13 +554,13 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DBFE66)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\..\libs\BusDrv\DMADrv.h)(0x5732F804)
 I (..\MioGiapicco\GlobalVar.h)(0x57A309DE)
 F (..\..\libs\BusDrv\UART\UartDrv.h)(0x57A43804)()
-F (..\..\libs\BusDrv\I2C\I2cDrv.c)(0x579FB045)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\i2cdrv.o --omf_browse .\obj\i2cdrv.crf --depend .\obj\i2cdrv.d)
-I (..\..\libs\BusDrv\I2C\I2cDrv.h)(0x578D3707)
+F (..\..\libs\BusDrv\I2C\I2cDrv.c)(0x57A67769)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\i2cdrv.o --omf_browse .\obj\i2cdrv.crf --depend .\obj\i2cdrv.d)
+I (..\..\libs\BusDrv\I2C\I2cDrv.h)(0x57A4C684)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
@@ -578,12 +578,12 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\MioGiapicco\def\typesdef.h)(0x57A12B26)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
-F (..\..\libs\BusDrv\I2C\I2cDrv.h)(0x578D3707)()
-F (.\stm32f10x_it.c)(0x576EAFC1)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_it.o --omf_browse .\obj\stm32f10x_it.crf --depend .\obj\stm32f10x_it.d)
+F (..\..\libs\BusDrv\I2C\I2cDrv.h)(0x57A4C684)()
+F (.\stm32f10x_it.c)(0x576EAFC1)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\stm32f10x_it.o --omf_browse .\obj\stm32f10x_it.crf --depend .\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x523CABFE)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -603,7 +603,7 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
 I (fun/coreInit.h)(0x5785000F)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\MioGiapicco\def\pin_descr.h)(0x57912CF6)
 I (..\..\libs\BusDrv\UART\UartDrv.h)(0x57A43804)
@@ -612,7 +612,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DBFE68)
 I (..\..\libs\HighDrv\EaseOfAccess.h)(0x526E10E8)
 I (..\..\libs\BusDrv\DMADrv.h)(0x5732F804)
 I (..\MioGiapicco\GlobalVar.h)(0x57A309DE)
-F (.\fun\coreInit.c)(0x579F378D)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\coreinit.o --omf_browse .\obj\coreinit.crf --depend .\obj\coreinit.d)
+F (.\fun\coreInit.c)(0x579F378D)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\coreinit.o --omf_browse .\obj\coreinit.crf --depend .\obj\coreinit.d)
 I (fun\coreInit.h)(0x5785000F)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
@@ -631,19 +631,19 @@ I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Drive
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D78AC34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D78AC34)
-I (..\MioGiapicco\def\def.h)(0x57A488F5)
+I (..\MioGiapicco\def\def.h)(0x57A650C1)
 I (..\..\libs\HighDrv\high_GPIODrv.h)(0x576E982F)
 I (..\MioGiapicco\def\pin_descr.h)(0x57912CF6)
 F (.\fun\coreInit.h)(0x5785000F)()
 F (.\stm32f10x_it.h)(0x523CABFE)()
 F (.\stm32f10x_conf.h)(0x578B5F99)()
-F (.\mod_startup_stm32f10x_md.s)(0x57A04CB2)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 518" --pd "STM32F10X_HD SETA 1"--list .\lst\mod_startup_stm32f10x_md.lst --xref -o .\obj\mod_startup_stm32f10x_md.o --depend .\obj\mod_startup_stm32f10x_md.d)
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.c)(0x4C0CBAEE)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\core_cm3.o --omf_browse .\obj\core_cm3.crf --depend .\obj\core_cm3.d)
+F (.\mod_startup_stm32f10x_md.s)(0x57A49BAA)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 518" --pd "STM32F10X_HD SETA 1"--list .\lst\mod_startup_stm32f10x_md.lst --xref -o .\obj\mod_startup_stm32f10x_md.o --depend .\obj\mod_startup_stm32f10x_md.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.c)(0x4C0CBAEE)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\core_cm3.o --omf_browse .\obj\core_cm3.crf --depend .\obj\core_cm3.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)
 F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)()
 F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4D78AD2A)()
 F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)()
-F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.c)(0x4D78AD30)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\system_stm32f10x.o --omf_browse .\obj\system_stm32f10x.crf --depend .\obj\system_stm32f10x.d)
+F (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.c)(0x4D78AD30)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\MioGiapicco -I ..\..\libs\BusDrv -I ..\..\libs\ExtFun -I ..\..\libs\HighDrv -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport -I ..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x-I "C:\Documents and Settings\dkulpa\My Documents\ARM\projects\MioGiapicco\RTE"-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="518" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -Dc99-o .\obj\system_stm32f10x.o --omf_browse .\obj\system_stm32f10x.crf --depend .\obj\system_stm32f10x.d)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D78AD34)
 I (..\..\libs\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D52ABD8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DBFE70)

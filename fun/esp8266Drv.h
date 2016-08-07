@@ -57,6 +57,7 @@ uint8_t esp8266_checkResponse(uint16_t strStart);
 
 uint8_t esp8266_waitForPrompt(uint8_t timeout, uint16_t strStart);
 uint8_t esp8266_waitForResp(uint8_t timeout, uint16_t strStart);
+uint8_t esp8266_waitForRespAfter(uint8_t timeout, uint16_t strStart, char *after);
 uint8_t esp8266_waitForSpecResp(char *resp, uint8_t timeout, uint16_t strStart);
 
 #endif

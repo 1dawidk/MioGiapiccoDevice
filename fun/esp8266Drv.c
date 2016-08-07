@@ -38,6 +38,22 @@ uint8_t esp8266_checkResponse(uint16_t strStart)
 	return ESP8266_RESPONSE_UNKNOWN;
 }
 
+uint8_t esp8266_checkResponseAfter(uint16_t strStart, char *after)
+{
+	char *afterPos= strstr((const char*)(UART1_getRxData(strStart)), after);
+	
+	if(after)
+	{
+		if(strstr((const char*)(UART1_getRxData(strStart)), "OK"))
+			return ESP8266_RESPONSE_OK;
+	
+		if(strstr((const char*)(UART1_getRxData(strStart)), "ERROR"))
+			return ESP8266_RESPONSE_ERROR;
+	}
+	
+	return ESP8266_RESPONSE_UNKNOWN;
+}
+
 uint8_t esp8266_waitForPrompt(uint8_t timeout, uint16_t strStart)
 {
 	int endClk=CLOCK+timeout+1;
@@ -57,6 +73,15 @@ uint8_t esp8266_waitForResp(uint8_t timeout, uint16_t strStart)
 	while((esp8266_checkResponse(strStart)==ESP8266_RESPONSE_UNKNOWN) && endClk>CLOCK);
 	
 	return esp8266_checkResponse(strStart);
+}
+
+uint8_t esp8266_waitForRespAfter(uint8_t timeout, uint16_t strStart, char *after)
+{
+	int endClk= CLOCK+timeout+1;
+	
+	while((esp8266_checkResponseAfter(strStart, after)==ESP8266_RESPONSE_UNKNOWN) && endClk>CLOCK);
+
+	return esp8266_checkResponseAfter(strStart, after);
 }
 
 uint8_t esp8266_waitForSpecResp(char *resp, uint8_t timeout, uint16_t strStart)

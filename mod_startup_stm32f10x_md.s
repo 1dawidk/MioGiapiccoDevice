@@ -132,7 +132,7 @@ Reset_Handler    PROC
      IMPORT  CoreInit
                  LDR     R0, =CoreInit
                  BLX     R0
-nh                 LDR     R0, =__main
+                 LDR     R0, =__main
                  BX      R0
                  ENDP
 

@@ -81,7 +81,7 @@ int main(void)
 	httpReqParams[3].name=ContentType;
 	httpReqParams[3].value="application/x-www-form-urlencoded";	
 	
-	measure.lastTime=0;
+	measure.lastTime=CLOCK-MEASUREMENT_SEP+30;
 	
 	//Main inf loop
 	while(1)
@@ -124,12 +124,6 @@ int main(void)
 							//If server resp clear data prepared and talking
 							if(server_responseCode==1 || CLOCK-talkStartClk>30)
 							{
-								
-								if(CLOCK-talkStartClk>30)
-								{
-										UART1_putStr(" #Time s Up!# ");	
-								}
-								
 								if(measure.sendCnt<sysCfg.plantsCnt-1)
 								{
 									measure.sendCnt++;
@@ -225,29 +219,33 @@ int main(void)
 			{
 				tmpStr= Server_getPOSTVar("wifiSSID", configStr);
 				EEWrite_String(EE_ADR_SSID, tmpStr);
+				free(tmpStr);	
 				_delay_ms(200);
-				free(tmpStr);				
+							
 				
 				tmpStr= Server_getPOSTVar("wifiPass", configStr);
 				EEWrite_String(EE_ADR_PASS, tmpStr);
+				free(tmpStr);	
 				_delay_ms(200);
-				free(tmpStr);
+				
 				
 				tmpStr= Server_getPOSTVar("userLogin", configStr);
 				EEWrite_String(EE_ADR_USER_LOGIN, tmpStr);
+				free(tmpStr);	
 				_delay_ms(200);
-				free(tmpStr);
+				
 				
 				tmpStr= Server_getPOSTVar("userPass", configStr);
 				EEWrite_String(EE_ADR_USER_PASS, tmpStr);
+				free(tmpStr);	
 				_delay_ms(200);
-				free(tmpStr);
+				
 				
 				tmpStr= Server_getPOSTVar("PlantsCnt", configStr);
 				sscanf(tmpStr, "%d", &tmpInt);
 				EEWrite_Byte(EE_ADR_PLANTSCNT, tmpInt);
+				free(tmpStr);	
 				_delay_ms(200);
-				free(tmpStr);
 				
 				postPlantName= malloc(sizeof(char)*8);
 				
@@ -261,7 +259,7 @@ int main(void)
 				}
 				
 				free(postPlantName);
-				
+				free(configStr);
 				
 				EEWrite_Byte(EE_ADR_FIRSTRUN, FALSE);
 				
