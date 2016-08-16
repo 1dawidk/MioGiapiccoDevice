@@ -110,6 +110,7 @@ int main(void)
 				{
 					WIFI_LED_OFF;
 					WiFi_StartWiFiConnecting(sysCfg.WiFi_ssid, sysCfg.WiFi_pass);
+					_delay_ms(500);
 				}
 				else
 				{
@@ -274,6 +275,4 @@ int main(void)
 			}
 		}	
 	}
-	
-	return 0;
 }

@@ -11,7 +11,7 @@
 /*********************************************/
 
 #define BUTTONS_SEG								A
-#define WIFIMODE_BUTTON_PIN				P8
+#define WIFIMODE_BUTTON_PIN				P9
 
 #define ADC_SEG										A
 #define ADC_1_PIN									P1
@@ -19,7 +19,7 @@
 #define ADC_3_PIN									P4
 #define ADC_4_PIN									P3
 #define ADC_5_PIN									P5
-#define ADC_6_PIN									P6
+#define ADC_6_PIN									P7
 
 #define SOILHYGROMETER_ONOFF_SEG	C
 #define SOILHYGROMETER_ONOFF_PIN	P3

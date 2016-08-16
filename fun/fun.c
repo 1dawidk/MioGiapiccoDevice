@@ -15,9 +15,9 @@ void BlinkError(void)
 	for(i=0; i<5; i++)
 	{
 		ERROR_LED_ON;
-		_delay_ms(100);
+		_delay_ms(50);
 		ERROR_LED_OFF;
-		_delay_ms(100);
+		_delay_ms(50);
 	}
 }
 
@@ -108,13 +108,9 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	uint8_t i;
 	uint8_t readResult;
 	
-	EEInit(0xa0);
-	UART1_init(115200);
+	EEInit();
 	
-	if(FACTORY_BOOT)
-	{
-		EEClear();
-	}
+	_delay_ms(100);
 	
 	EEWrite_Byte(EE_ADR_FIRSTRUN, 0);
 	readResult= EERead_Byte(EE_ADR_FIRSTRUN);
@@ -131,16 +127,19 @@ void MemoryInit(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	}
 	else
 	{
+		EEWrite_String(EE_ADR_SSID, "dlink");
+		EEWrite_String(EE_ADR_PASS, "sikakama1");
+		
 		sysCfg->plantsCnt= EERead_Byte(EE_ADR_PLANTSCNT);
 		sysCfg->WiFi_ssid= EERead_String(EE_ADR_SSID);
 		sysCfg->WiFi_pass= EERead_String(EE_ADR_PASS);
 		
 		sysCfg->user_login= EERead_String(EE_ADR_USER_LOGIN);
 		sysCfg->user_pass= EERead_String(EE_ADR_USER_PASS);
-			
+		
 		for(i=0; i<(sysCfg->plantsCnt); i++)
 		{
-			(&(plants[i]))->name= EERead_String(EE_ADR_PLANTNAME_BASE+i);
+			//(&(plants[i]))->name= EERead_String(EE_ADR_PLANTNAME_BASE+i);
 		}
 	}
 }
@@ -289,6 +288,8 @@ char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants)
 */
 uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 {
+	uint8_t wifiBtnState;
+	
 	SYS_LED_OFF;
 	FUN_LED_OFF;
 	ERROR_LED_OFF;
@@ -296,13 +297,14 @@ uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants)
 	
 	
 	FUN_LED_ON;
+	wifiBtnState=getButtonState(GPIO_SEG(BUTTONS_SEG), WIFIMODE_BUTTON_PIN, BUTTON_IDLE_HIGH);
 	EngineInit();
 	SoilHygrometerInsolationInit();
 	DHT11Init();
 	MemoryInit(sysCfg, plants);
 	FUN_LED_OFF;
 	
-	if(WIFIMODE_BUTTON_STATE || sysCfg->mode==SYS_MODE_FIRSTRUN)
+	if(wifiBtnState || sysCfg->mode==SYS_MODE_FIRSTRUN)
 	{		
 		WiFiInit(WIFI_MODE_AP);
 		Server_StartRxListener(BuildAPResponse(sysCfg, plants));
@@ -328,6 +330,8 @@ uint8_t getSoilMoisture(uint8_t input_nr)
 	_delay_ms(20);
 	SOILMOISTURE_DEVICE_OFF;
 	
+	//TEST
+	soilMoistureData=adcData[5]/10;
 	
 	return soilMoistureData;
 }
@@ -336,18 +340,17 @@ uint8_t getInsolation(void)
 {
 	uint8_t insolation;
 	
-	SOILMOISTURE_DEVICE_ON;
-	_delay_ms(100);
-	insolation= (adcData[5]*100)/MAX_INSOLATION;
+	//insolation= adcData[5]/10;
+	insolation=(100 * (MAX_INSOLATION-adcData[5]))/(MAX_INSOLATION-MIN_INSOLATION);
 	_delay_ms(20);
 	
-	UART1_putStr(" # Insolation ADC Value: ");
-	UART1_putInt(adcData[5]);
-	UART1_putStr(" # ");
+	//if(insolation>100)
+		//insolation=100;
 	
-	SOILMOISTURE_DEVICE_OFF;
+	//if(insolation<0)
+		//insolation=0;
 	
-	return insolation;
+	return (uint8_t)insolation;
 }
 
 #define STATE_HIGH	1
@@ -423,6 +426,18 @@ uint8_t getDHTData(uint8_t *temp, uint8_t *RH)
 void setEngineRPM(uint16_t rpm)
 {
 	TIM2->CCR4= rpm;
+}
+
+uint8_t getButtonState(GPIO_TypeDef* Seg, uint16_t pin, uint16_t idle)
+{
+	if((Seg->IDR&pin)^(pin&idle))
+	{
+		_delay_ms(20);
+		if((Seg->IDR&pin)^(pin&idle))
+			return BUTTON_PRESSED;
+	}
+	
+	return BUTTON_RELEASED;
 }
 
 #endif

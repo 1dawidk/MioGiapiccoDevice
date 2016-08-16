@@ -23,9 +23,8 @@ void RCC_config(void)
     RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);           //ustaw PLL jako zrodlo sygnalu zegarowego
     while(RCC_GetSYSCLKSource() != 0x08);                //odczekaj az PLL bedzie sygnalem zegarowym systemu
 
-		RCC_HSICmd(DISABLE);
+		//RCC_HSICmd(DISABLE);
 		
-  /*Tu nalezy umiescic kod zwiazany z konfiguracja sygnalow zegarowych potrzebnych w programie peryferiow*/
 	  RCC_ADCCLKConfig(RCC_PCLK2_Div8);
 	  
     // taktowanie GPIO
@@ -42,12 +41,11 @@ void RCC_config(void)
 			RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
 			RCC_APB1PeriphClockCmd(RCC_APB1Periph_BKP, ENABLE);
 			
-			
 		// taktowanie APB2
 			RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
 			
+			
 			RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
-
   }
 }
 
@@ -119,7 +117,7 @@ void GPIO_config(void)
 			//BUTTONS
 			GPIO_InitStruct.GPIO_Pin= WIFIMODE_BUTTON_PIN;
 			GPIO_InitStruct.GPIO_Mode= GPIO_Mode_IPU;
-			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_10MHz;
+			GPIO_InitStruct.GPIO_Speed= GPIO_Speed_50MHz;
 			GPIO_Init(GPIO_SEG(BUTTONS_SEG), &GPIO_InitStruct);
 
 //-------- I2C1
@@ -128,18 +126,11 @@ void GPIO_config(void)
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF_OD;
 	
 	GPIO_Init(GPIO_SEG(I2C_SEG), &GPIO_InitStruct);
-
 }
 
 void NVIC_config(void)
 {
 	NVIC_InitTypeDef NVIC_InitStructure;
-	
-	#ifdef VECT_TAB_RAM
-	  NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0);
-	#else
-    NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);
-	#endif
 	
 	//Wybranie grupy priorytetów
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //grupa prio nr 2 || 4 grupy po 4 podprio
@@ -175,8 +166,9 @@ uint32_t SysTick_Init(uint32_t ticks)
 	
 	SysTick->VAL= 0;
 	
+	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
+	
 	SysTickSett= SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
-	SysTickSett= SysTick_CLKSource_HCLK_Div8;
 	
 	SysTick->CTRL |= SysTickSett;
 	
@@ -248,6 +240,7 @@ void CoreInit(void)
 	SysTick_Init(SYSTICK_CLK_LOAD);
 	GPIO_config();
 	NVIC_config();
+	__enable_irq();
 }
 
 #endif

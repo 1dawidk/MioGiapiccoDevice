@@ -19,18 +19,16 @@
 ".\obj\stm32f10x_rcc.o"
 ".\obj\stm32f10x_usart.o"
 ".\obj\stm32f10x_tim.o"
-".\obj\stm32f10x_i2c.o"
 ".\obj\adchighdrv.o"
 ".\obj\dmadrv.o"
 ".\obj\timerhighdrv.o"
 ".\obj\uartdrv.o"
-".\obj\i2cdrv.o"
 ".\obj\stm32f10x_it.o"
 ".\obj\coreinit.o"
 ".\obj\mod_startup_stm32f10x_md.o"
 ".\obj\core_cm3.o"
 ".\obj\system_stm32f10x.o"
---strict --scatter ".\obj\MioGiapicco.sct"
+--library_type=microlib --strict --scatter ".\obj\MioGiapicco.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\lst\MioGiapicco.map" -o .\obj\MioGiapicco.axf

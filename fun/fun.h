@@ -17,6 +17,12 @@
 #include "fun/eeprom.h"
 #include "fun/JSON.h"
 
+#define BUTTON_PRESSED		1
+#define BUTTON_RELEASED		0
+#define BUTTON_IDLE_LOW		0
+#define BUTTON_IDLE_HIGH	0xffff
+
+void BlinkError(void);
 uint8_t RegisterToServer(HttpHeaderParam *httpReqParams, SystemConfig_dt *sysCfg, Plant_dt *plants);
 char* BuildAPResponse(SystemConfig_dt *sysCfg, Plant_dt *plants);
 uint8_t StartSys(SystemConfig_dt *sysCfg, Plant_dt *plants);
@@ -30,5 +36,7 @@ void setEngineRPM(uint16_t rpm);
 
 uint8_t receivePlantData(Plant_dt *plant, char *userLogin, char *userPass);
 uint8_t sendPlantData(Plant_dt *plant, char *userLogin, char *userPass);
+
+uint8_t getButtonState(GPIO_TypeDef* Seg, uint16_t pin, uint16_t idle);
 
 #endif

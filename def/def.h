@@ -6,7 +6,7 @@
 //################################### CPU_SET
 #define STM32F103RB
 #define F_CPU											72000000UL
-#define __NAME__            			"stm32f103Cb"
+#define __NAME__            			"stm32f103rc"
 //*******************************************
 
 //############################## PLANT SYSTEM
@@ -86,21 +86,20 @@
 
 //################################### BUTTONS
 #define WIFIMODE_BUTTON_STATE			!(READ_SEG(BUTTONS_SEG)&WIFIMODE_BUTTON_PIN)
-#define FUNCTION_BUTTON_STATE			!(READ_SEG(BUTTONS_SEG)&FUNCTION_BUTTON_PIN)
 //*******************************************
 
 //##################################### POMIARY
 #define MAX_SOILMOISTURE					2750
 #define MAX_AIRHUMIDITY						0x0850
-#define MAX_INSOLATION						550;
-#define MIN_INSOLATION						0;
+#define MAX_INSOLATION						1530
+#define MIN_INSOLATION						40
 
 #define SOILMOISTURE_DEVICE_ON		SET_SEG(SOILHYGROMETER_ONOFF_SEG)&=~SOILHYGROMETER_ONOFF_PIN
 #define SOILMOISTURE_DEVICE_OFF		SET_SEG(SOILHYGROMETER_ONOFF_SEG)|=SOILHYGROMETER_ONOFF_PIN
 //*******************************************
 
 //##################################### CZASY
-#define MEASUREMENT_SEP						600
+#define MEASUREMENT_SEP						40
 //*******************************************
 
 //##################################### USART
@@ -117,14 +116,16 @@
 //*******************************************
 
 //##################### ADRESY PAMIECI EEPROM
+#define FLASH_EE_START_ADR				0x8033000
+
 #define EE_ADR_FIRSTRUN						0
 #define EE_ADR_PLANTSCNT					1
 
-#define EE_ADR_SSID								0
-#define EE_ADR_PASS								1
-#define EE_ADR_USER_LOGIN					2
-#define EE_ADR_USER_PASS					3
-#define EE_ADR_PLANTNAME_BASE			4
+#define EE_ADR_SSID								2
+#define EE_ADR_PASS								3
+#define EE_ADR_USER_LOGIN					4
+#define EE_ADR_USER_PASS					5
+#define EE_ADR_PLANTNAME_BASE			6
 //*******************************************
 
 #endif
